@@ -16,7 +16,9 @@ dpkg-reconfigure console-setup;
 
 apt install -y task-desktop task-xfce-desktop;
 
-apt install -y git firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet chirp mpv youtube-dl vim-gtk3 redshift libssl-dev libbz2-dev libnss3-dev libgdbm-dev libncurses5-dev libffi-dev libreadline-dev libsqlite3-dev zlib1g-dev build-essential;
+apt install -y git firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet chirp mpv youtube-dl vim-gtk3 redshift 
+
+apt install -y libssl-dev libbz2-dev libnss3-dev libgdbm-dev libncurses5-dev libffi-dev libreadline-dev libsqlite3-dev zlib1g-dev build-essential;
 
 apt install --no-install-recommends software-properties-common -y;
 
@@ -25,8 +27,8 @@ tar -xvf Python-3.11.0.tar.xz;
 cd Python-3.11.0;
 
 ./configure --prefix=/usr/local --enable-optimizations
-sudo make
-sudo altinstall
+make
+make altinstall
 
 cp /usr/bin/youtube-dl /usr/bin/youtube-dl-orig;
 wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/bin/youtube-dl;
@@ -92,12 +94,12 @@ usermod -aG libvirt,libvirt-qemu xf0r3m;
 usermod -aG libvirt,libvirt-qemu user;
 echo "immudex" > /etc/hostname;
 echo "127.0.1.1    immudex" >> /etc/hosts;
-echo "deb http://ftp.icm.edu.pl/pub/Linux/debian/ bullseye main" > /etc/apt/sources.list;
-echo "deb-src http://ftp.icm.edu.pl/pub/Linux/debian/ bullseye main" >> /etc/apt/sources.list;
-echo "deb http://security.debian.org/debian-security bullseye-security main" >> /etc/apt/sources.list;
-echo "deb-src http://security.debian.org/debian-security bullseye-security main" >> /etc/apt/sources.list;
-echo "deb http://ftp.icm.edu.pl/pub/Linux/debian/ bullseye-updates main" >> /etc/apt/sources.list;
-echo "deb-src http://ftp.icm.edu.pl/pub/Linux/debian/ bullseye-updates main" >> /etc/apt/sources.list;
+echo "deb http://ftp.icm.edu.pl/pub/Linux/debian/ bookworm main" > /etc/apt/sources.list;
+echo "deb-src http://ftp.icm.edu.pl/pub/Linux/debian/ bookworm main" >> /etc/apt/sources.list;
+echo "deb http://security.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list;
+echo "deb-src http://security.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list;
+echo "deb http://ftp.icm.edu.pl/pub/Linux/debian/ bookworm-updates main" >> /etc/apt/sources.list;
+echo "deb-src http://ftp.icm.edu.pl/pub/Linux/debian/ bookworm-updates main" >> /etc/apt/sources.list;
 apt update;
 apt upgrade -y;
 cd;
@@ -105,7 +107,8 @@ rm -rf immudex/
 rm -rf xfcedebian/
 apt-get clean;
 apt-get clean;
-apt-get autoremove -y;
 apt-get autoclean;
+apt remove -y libssl-dev libbz2-dev libnss3-dev libgdbm-dev libncurses5-dev libffi-dev libreadline-dev libsqlite3-dev zlib1g-dev build-essential software-properties-common ;
+apt-get autoremove -y;
 echo > ~/.bash_history
 history -c
