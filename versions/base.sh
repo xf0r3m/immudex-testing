@@ -79,7 +79,7 @@ echo "alias chhome='export HOME=\$(pwd)'" >> /etc/bash.bashrc;
 echo "alias ytstream='mpv --ytdl-format=best[height=480]'" >> /etc/bash.bashrc;
 
 chmod u+s /usr/bin/ping;
-sed -i -e 's/chirpw/sudo chirpw/' -e 's/false/true' /usr/share/applications/chirp.desktop;
+sed -i -e 's/chirpw/sudo chirpw/' -e 's/false/true/' /usr/share/applications/chirp.desktop;
 
 ufw default deny incoming;
 ufw default allow outgoing;
