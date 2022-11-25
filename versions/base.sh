@@ -42,8 +42,8 @@ sed -i 's/sudo//g' install.sh;
 bash install.sh;
 
 cd;
-git clone https://github.com/xf0r3m/immudex.git;
-cd immudex;
+git clone https://github.com/xf0r3m/immudex-testing.git;
+cd immudex-testing;
 
 tar -xzvf mozilla.tgz -C /etc/skel;
 chown -R root:root /etc/skel/.mozilla;
@@ -104,7 +104,7 @@ echo "deb-src http://ftp.icm.edu.pl/pub/Linux/debian/ bookworm-updates main" >> 
 apt update;
 apt upgrade -y;
 cd;
-rm -rf immudex/
+rm -rf immudex-testing/
 rm -rf xfcedebian/
 apt-get clean;
 apt-get clean;
