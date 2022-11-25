@@ -38,6 +38,7 @@ cd;
 git clone https://github.com/xf0r3m/xfcedebian.git;
 cd xfcedebian;
 chmod +x install.sh;
+sed -i 's/sudo//g' install.sh;
 bash install.sh;
 
 cd;
