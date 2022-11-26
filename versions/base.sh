@@ -118,6 +118,7 @@ usermod -aG libvirt,libvirt-qemu user;
 rm -rf immudex-testing/
 rm -rf xfcedebian/
 rm -rf /Python-3.11.0;
+rm /Python-3.11.0.tar.xz;
 apt-get clean;
 apt-get clean;
 apt-get autoclean;
