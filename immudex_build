@@ -195,6 +195,6 @@ if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
 
 #Create iso image:
 echo -n "Creating iso image...";
-cd ~/immudex/${arch};
+cd ~/immudex-testing/${arch};
 xorriso as mkisofs -iso-level 3 -o "immudex-testing${arch}.iso" -full-iso9660-filenames -volid "immudex-testing${arch}" -isohybrid-mbr /usr/lib/ISOLINUX/isohdpfx.bin -eltorito-boot isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 -boot-info-table --eltorito-catalog isolinux/isolinux.cat -eltorito-alt-boot -e /boot/grub/efiboot.img -no-emul-boot -isohybrid-gpt-basdat -append_partition 2 0xef ~/immudex-testing/${arch}/staging/boot/grub/efiboot.img ~/immudex-testing/${arch}/staging >> ~/immudex_build.log 2>&1;
 if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
