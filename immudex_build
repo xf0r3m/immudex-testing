@@ -180,7 +180,7 @@ if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
 echo "-==Creating grub-efi bootloader file: $(date)==-" >> immudex_build.log;
 echo -n "Creating grub-efi bootloader file...";
 myHOME=$(pwd);
-grub-mkstandalone --format=x86_64-efi --output=${myHOME}/immudex-testing/${arch}/staging/EFI/boot/bootx64.efi --locales="" --fonts="" "boot/grub/grub.cfg=${myHOME}/immudex/${arch}/tmp/grub-standalone.cfg";
+grub-mkstandalone --format=x86_64-efi --output=${myHOME}/immudex-testing/${arch}/staging/EFI/boot/bootx64.efi --locales="" --fonts="" "boot/grub/grub.cfg=${myHOME}/immudex-testing/${arch}/tmp/grub-standalone.cfg";
 if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
 
 #Creating additional EFI partition:
