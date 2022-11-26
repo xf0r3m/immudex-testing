@@ -108,7 +108,7 @@ if [ ! -f /home/xf0r3m/.bashrc ]; then
   cp -rvv /etc/skel/.??* /home/xf0r3m;
   chown -R xf0r3m:xf0r3m /home/xf0r3m;
 fi
-echo "xf0r3m:xf0r3m" | chpasswd;
+echo "xf0r3m:xf0r3m1" | chpasswd;
 
 echo "xf0r3m ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
 echo "user ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
