@@ -84,10 +84,10 @@ sed -i -e 's/chirpw/sudo chirpw/' -e 's/false/true/' /usr/share/applications/chi
 ufw default deny incoming;
 ufw default allow outgoing;
 ufw enable;
-useradd -m -s /bin/bash xf0r3m;
-echo "xf0r3m:xf0r3m1" | chpasswd;
-useradd -m -s /bin/bash user;
+useradd -m -s /bin/bash -k /etc/skel user;
 echo "user:user1" | chpasswd;
+useradd -m -s /bin/bash -k /etc/skel xf0r3m;
+echo "xf0r3m:xf0r3m" | chpasswd;
 echo "xf0r3m ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
 echo "user ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
 echo "root:toor" | chpasswd;
