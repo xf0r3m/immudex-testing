@@ -190,7 +190,7 @@ dd if=/dev/zero bs=1M of=efiboot.img count=20 >> ~/immudex_build.log 2>&1;
 sudo mkfs.vfat efiboot.img >> ~/immudex_build.log 2>&1;
 echo "-==Creating MS-DOS directory: $(date)==-" >> ~/immudex_build.log;
 sudo mmd -i efiboot.img efi efi/boot >> ~/immudex_build.log 2>&1;
-sudo mcopy -vi efiboot.img ~/immudex/${arch}/staging/EFI/boot/bootx64.efi ::efi/boot >> ~/immudex_build.log 2>&1;
+sudo mcopy -vi efiboot.img ~/immudex-testing/${arch}/staging/EFI/boot/bootx64.efi ::efi/boot >> ~/immudex_build.log 2>&1;
 if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
 
 #Create iso image:
