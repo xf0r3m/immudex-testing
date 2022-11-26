@@ -84,15 +84,6 @@ sed -i -e 's/chirpw/sudo chirpw/' -e 's/false/true/' /usr/share/applications/chi
 ufw default deny incoming;
 ufw default allow outgoing;
 ufw enable;
-useradd -m -s /bin/bash -k /etc/skel user;
-echo "user:user1" | chpasswd;
-useradd -m -s /bin/bash -k /etc/skel xf0r3m;
-echo "xf0r3m:xf0r3m" | chpasswd;
-echo "xf0r3m ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
-echo "user ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
-echo "root:toor" | chpasswd;
-usermod -aG libvirt,libvirt-qemu xf0r3m;
-usermod -aG libvirt,libvirt-qemu user;
 echo "immudex" > /etc/hostname;
 echo "127.0.1.1    immudex" >> /etc/hosts;
 echo "deb http://ftp.icm.edu.pl/pub/Linux/debian/ bookworm main" > /etc/apt/sources.list;
@@ -104,8 +95,29 @@ echo "deb-src http://ftp.icm.edu.pl/pub/Linux/debian/ bookworm-updates main" >> 
 apt update;
 apt upgrade -y;
 cd;
+
+useradd -m -s /bin/bash user;
+if [ ! -f /home/user/.bashrc ]; then
+  cp -rvv /etc/skel/.??* /home/user;
+  chown -R user:user /home/user;
+fi
+echo "user:user1" | chpasswd;
+
+useradd -m -s /bin/bash xf0r3m;
+if [ ! -f /home/xf0r3m/.bashrc ]; then
+  cp -rvv /etc/skel/.??* /home/xf0r3m;
+  chown -R xf0r3m:xf0r3m /home/xf0r3m;
+fi
+echo "xf0r3m:xf0r3m" | chpasswd;
+
+echo "xf0r3m ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
+echo "user ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
+echo "root:toor" | chpasswd;
+usermod -aG libvirt,libvirt-qemu xf0r3m;
+usermod -aG libvirt,libvirt-qemu user;
 rm -rf immudex-testing/
 rm -rf xfcedebian/
+rm -rf /Python-3.11.0;
 apt-get clean;
 apt-get clean;
 apt-get autoclean;
