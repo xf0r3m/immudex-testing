@@ -18,17 +18,17 @@ apt install -y task-desktop task-xfce-desktop;
 
 apt install -y git firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet chirp mpv youtube-dl vim-gtk3 redshift 
 
-apt install -y libssl-dev libbz2-dev libnss3-dev libgdbm-dev libncurses5-dev libffi-dev libreadline-dev libsqlite3-dev zlib1g-dev build-essential;
+#apt install -y libssl-dev libbz2-dev libnss3-dev libgdbm-dev libncurses5-dev libffi-dev libreadline-dev libsqlite3-dev zlib1g-dev build-essential;
 
-apt install --no-install-recommends software-properties-common -y;
+#apt install --no-install-recommends software-properties-common -y;
 
-wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tar.xz -O Python-3.11.0.tar.xz;
-tar -xvf Python-3.11.0.tar.xz;
-cd Python-3.11.0;
+#wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tar.xz -O Python-3.11.0.tar.xz;
+#tar -xvf Python-3.11.0.tar.xz;
+#cd Python-3.11.0;
 
-./configure --prefix=/usr/local --enable-optimizations
-make
-make altinstall
+#./configure --prefix=/usr/local --enable-optimizations
+#make
+#make altinstall
 
 cp /usr/bin/youtube-dl /usr/bin/youtube-dl-orig;
 wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/bin/youtube-dl;
@@ -117,12 +117,12 @@ usermod -aG libvirt,libvirt-qemu xf0r3m;
 usermod -aG libvirt,libvirt-qemu user;
 rm -rf immudex-testing/
 rm -rf xfcedebian/
-rm -rf /Python-3.11.0;
-rm /Python-3.11.0.tar.xz;
+#rm -rf /Python-3.11.0;
+#rm /Python-3.11.0.tar.xz;
 apt-get clean;
 apt-get clean;
 apt-get autoclean;
-apt remove -y libssl-dev libbz2-dev libnss3-dev libgdbm-dev libncurses5-dev libffi-dev libreadline-dev libsqlite3-dev zlib1g-dev build-essential software-properties-common ;
+#apt remove -y libssl-dev libbz2-dev libnss3-dev libgdbm-dev libncurses5-dev libffi-dev libreadline-dev libsqlite3-dev zlib1g-dev build-essential software-properties-common ;
 apt-get autoremove -y;
 echo > ~/.bash_history
 history -c
