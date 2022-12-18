@@ -24,17 +24,19 @@ zablokowano również wszelkie sieciowe połączenia przychodzące.
 Immudex domyślnie korzysta z wolnego oprogramowania, nie zainstalowano na nim
 niewolnych pakietów, w konfiguracji nie ma również niewolnych repozytoriów.
 Do dyspozycji mamy:
-  * Standardowe środowisko XFCE dostępne na Debian Stable
+  * Standardowe środowisko XFCE dostępne na Debian Testing
   * Odtwarzacz muzyki QMMP
   * Odtwarzacz multimedialny VLC
   * virt-manager (KVM)
 
 Obraz płyty znajduje się na serwisie sourceforge.net. Poniżej znajduje się 
 odnośniki.
-  * 64-bit: [https://sourceforge.net/projects/immudex/files/iso/0.0.6/immudex64.iso/download](https://sourceforge.net/projects/immudex/files/iso/0.0.6/immudex64.iso/download)
-    CRC: 3859012829 SHA1: 4aafe83073eb46d2fb325dcae44422e787805187
-  * 32-bit: [https://sourceforge.net/projects/immudex/files/iso/0.0.6/immudex32.iso/download](https://sourceforge.net/projects/immudex/files/iso/0.0.6/immudex32.iso/download)
-    CRC: 325219353 SHA1: 63d29e054a95ac343354ead25cca3e9f538cf125
+Tygodniowy build: 18.12.2022
+
+  * 64-bit: [https://sourceforge.net/projects/immudex-testing/files/iso/0.0.1/immudex-testing64.iso/download](https://sourceforge.net/projects/immudex-testing/files/iso/0.0.1/immudex-testing64.iso/download)
+    CRC: 4188603858 SHA1: a32ac2aa091ff35138fde5bf8d249f370dd17c11
+  * 32-bit: [https://sourceforge.net/projects/immudex/files/iso/0.0.1/immudex-testing32.iso/download](https://sourceforge.net/projects/immudex/files/iso/0.0.1/immudex-testing32.iso/download)
+    CRC: 1888215350 SHA1: 601aa186299d1532b621ac6d8ada40bd0d491668
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.
