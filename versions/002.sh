@@ -6,9 +6,6 @@ if [ ! "$version" ]; then echo -e "\e[31mUpdate failed!\e[0m"; exit 1; fi;
 apt update
 apt upgrade -y
 
-sed -i '26s/1/0/' /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml;
-sed -i '64i\\t<property name="disable-struts" type="bool" value="false"/>' /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml;
-
 userdel -r user;
 userdel -r xf0r3m;
 
