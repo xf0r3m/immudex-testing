@@ -40,5 +40,6 @@ apt-get clean;
 apt-get clean;
 apt-get autoremove -y;
 apt-get autoclean;
+rm -rf ~/immudex-testing;
 echo > ~/.bash_history;
 history -c   
