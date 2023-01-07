@@ -5,6 +5,7 @@ if [ ! "$version" ]; then echo -e "\e[31mUpdate failed!\e[0m"; exit 1; fi;
 
 apt update
 apt upgrade -y
+apt install irssi -y;
 
 if [ ! -d ~/immudex-testing ]; then
   cd;
