@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function upgrade_packages() {
+function update_packages() {
   dhclient; 
   apt update;
   apt upgrade -y;
