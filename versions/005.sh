@@ -53,6 +53,11 @@ VERSION=$(echo $0 | cut -d "." -f 1);
 if [ ! "$VERSION" ]; then echo -e "\e[31mUpdate failed!\e[0m"; exit 1; fi;
 
 update_packages;
+
+cp /usr/bin/youtube-dl /usr/bin/youtube-dl-orig;
+sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/bin/youtube-dl;
+chmod +x /usr/bin/youtube-dl;
+
 install_packages grub-efi-ia32-bin;
 
 get_immudex_testing_project;
