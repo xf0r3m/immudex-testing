@@ -34,8 +34,10 @@ odnośniki.
 Tygodniowy build: 14.01.2023
 
   * 64-bit: [https://sourceforge.net/projects/immudex-testing/files/iso/0.0.5/immudex-testing64.iso/download](https://sourceforge.net/projects/immudex-testing/files/iso/0.0.5/immudex-testing64.iso/download)
+
     CRC: 1699449035 SHA1: 5fcc8e2cae16fbc5b3d0a022cf8dfe9177a9fd03
   * 32-bit: [https://sourceforge.net/projects/immudex/files/iso/0.0.5/immudex-testing32.iso/download](https://sourceforge.net/projects/immudex/files/iso/0.0.5/immudex-testing32.iso/download)
+
     CRC: 2903710689 SHA1: 4aedbc0989424626299aa1a253027610873cf172
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
