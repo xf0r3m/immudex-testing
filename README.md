@@ -31,12 +31,12 @@ Do dyspozycji mamy:
 
 Obraz płyty znajduje się na serwisie sourceforge.net. Poniżej znajduje się 
 odnośniki.
-Tygodniowy build: 07.01.2023
+Tygodniowy build: 14.01.2023
 
-  * 64-bit: [https://sourceforge.net/projects/immudex-testing/files/iso/0.0.4/immudex-testing64.iso/download](https://sourceforge.net/projects/immudex-testing/files/iso/0.0.4/immudex-testing64.iso/download)
-    CRC: 3853029387 SHA1: c9926a62fc6a84734a355e78c6c50d74fffe18c9
-  * 32-bit: [https://sourceforge.net/projects/immudex/files/iso/0.0.3/immudex-testing32.iso/download](https://sourceforge.net/projects/immudex/files/iso/0.0.3/immudex-testing32.iso/download)
-    CRC: 1173155512 SHA1: c9f75f6c2b2217e0b49d03b814f8376ef6f48d37
+  * 64-bit: [https://sourceforge.net/projects/immudex-testing/files/iso/0.0.5/immudex-testing64.iso/download](https://sourceforge.net/projects/immudex-testing/files/iso/0.0.5/immudex-testing64.iso/download)
+    CRC: 1699449035 SHA1: 5fcc8e2cae16fbc5b3d0a022cf8dfe9177a9fd03
+  * 32-bit: [https://sourceforge.net/projects/immudex/files/iso/0.0.5/immudex-testing32.iso/download](https://sourceforge.net/projects/immudex/files/iso/0.0.5/immudex-testing32.iso/download)
+    CRC: 2903710689 SHA1: 4aedbc0989424626299aa1a253027610873cf172
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.
