@@ -31,14 +31,20 @@ Do dyspozycji mamy:
 
 Obraz płyty znajduje się na serwisie sourceforge.net. Poniżej znajduje się 
 odnośniki.
-Tygodniowy build: 14.01.2023
 
-  * 64-bit: [https://sourceforge.net/projects/immudex-testing/files/iso/0.0.5/immudex-testing64.iso/download](https://sourceforge.net/projects/immudex-testing/files/iso/0.0.5/immudex-testing64.iso/download)
+**Ze względu na zmianę serwera dystrybuującego immudex, do aktualizacji systemu
+do wersji 0.0.6 należy użyć skryptu immudex_upgrade z katalogu tools/006 lub
+przeprowadzić aktualizacje ręcznie. Skrypt aktualizacji zawarty w wersji 0.0.5
+nie będzie działać.**
 
-    CRC: 1746412233 SHA1: 144a4867a283a89305e8ba156593f5783c8f199a
-  * 32-bit: [https://sourceforge.net/projects/immudex/files/iso/0.0.5/immudex-testing32.iso/download](https://sourceforge.net/projects/immudex/files/iso/0.0.5/immudex-testing32.iso/download)
+Tygodniowy build: 21.01.2023
 
-    CRC: 887722473 SHA1: e52d6b12b312e7861c9ca1f6fcd162e36de9f76e
+  * 64-bit: [https://ftp.morketsmerke.net/immudex/testing/iso/0.0.6/immudex-testing64.iso](https://ftp.morketsmerke.net/immudex/testing/iso/0.0.6/immudex-testing64.iso)
+
+    CRC: 1208162598 SHA1: 52818484eb27891ec080d2088a6f45d61563011c
+  * 32-bit: [https://ftp.morketsmerke.net/immudex/testing/iso/0.0.6/immudex-testing32.iso](https://ftp.morketsmerke.net/immudex/testing/iso/0.0.6/immudex-testing32.iso)
+
+    CRC: 2028647818 SHA1: 70dd5bdf9edc7d0925db3c9dd99e483b59b414a1
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.
