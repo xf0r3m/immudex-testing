@@ -58,6 +58,8 @@ install_packages nmap nfs-common remmina;
 get_immudex_testing_project;
 
 cp -vv ~/immudex-testing/tools/${VERSION}/ytplay /usr/local/bin;
-chmod +x /usr/local/bin/ytplay;
+cp -vv ~/immudex-testing/tools/${VERSION}/immudex_upgrade /usr/local/bin;
+cp -vv ~/immudex-testing/tools/${VERSION}/motd2 /usr/local/bin;
+chmod +x /usr/local/bin/*;
 
 tidy;
