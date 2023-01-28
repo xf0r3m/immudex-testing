@@ -56,6 +56,11 @@ update_packages;
 install_packages gstreamer1.0-libav gstreamer1.0-plugins-good python3-pip ffmpeg libadwaita-1-0 gir1.2-adw-1;
 install_packages --no-install-recommends libgtk-4-bin libgtk-4-common libgtk-4-dev;
 
+rm /usr/bin/python3;
+ln -s /usr/bin/python3.10 /usr/bin/python3;
+
+install_packages python3.10-dev;
+
 cd;
 git clone https://gitlab.com/zehkira/myuzi.git;
 cd myuzi/source;
@@ -72,5 +77,8 @@ tar -xzvf ~/immudex-testing/files/${VERSION}/mozilla.tgz -C /etc/skel;
 cp -vv ~/immudex-testing/files/${VERSION}/16608166085.desktop /etc/skel/.config/xfce4/panel/launcher-19/16608166085.desktop;
 
 recreate_users;
+
+cp -vv ~/immudex-testing/files/005/irssi.desktop /home/xf0r3m/.config/autostart;
+chown -R 1001:1001 /home/xf0r3m;
 
 tidy;
