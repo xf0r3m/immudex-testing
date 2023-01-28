@@ -69,6 +69,6 @@ get_immudex_testing_project;
 
 rm -rf /etc/skel/.mozilla;
 tar -xzvf ~/immudex-testing/files/${VERSION}/mozilla.tgz -C /etc/skel;
-cp -vv ~/immudex-testing/files/${VERSION}/16608166085.desktop /etc/skel/.config/xfce4/panel/lanuncher-19/16608166085.desktop;panel/lanuncher-19/16608166085.desktop;panel/lanuncher-19/16608166085.desktop;
+cp -vv ~/immudex-testing/files/${VERSION}/16608166085.desktop /etc/skel/.config/xfce4/panel/launcher-19/16608166085.desktop;
 
 tidy;
