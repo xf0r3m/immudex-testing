@@ -64,4 +64,7 @@ cp -vv ~/immudex-testing/files/${VERSION}/firejail.config /etc/firejail;
 
 recreate_users;
 
+cp -vv ~/immudex-testing/files/005/irssi.desktop /home/xf0r3m/.config/autostart;
+chown -R 1001:1001 /home/xf0r3m;
+
 tidy;
