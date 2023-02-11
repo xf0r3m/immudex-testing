@@ -29,17 +29,17 @@ Do dyspozycji mamy:
   * Odtwarzacz multimedialny VLC
   * virt-manager (KVM)
 
-Obraz płyty znajduje się na serwisie sourceforge.net. Poniżej znajduje się 
+Obraz płyty znajduje się na dedykowanym serwisie WWW. Poniżej znajduje się 
 odnośniki.
 
-Tygodniowy build: 04.02.2023
+Tygodniowy build: 11.02.2023
 
-  * 64-bit: [https://ftp.morketsmerke.net/immudex/testing/iso/0.0.8/immudex-testing64.iso](https://ftp.morketsmerke.net/immudex/testing/iso/0.0.8/immudex-testing64.iso)
+  * 64-bit: [https://ftp.morketsmerke.net/immudex/testing/iso/0.0.9/immudex-testing64.iso](https://ftp.morketsmerke.net/immudex/testing/iso/0.0.9/immudex-testing64.iso)
 
-    CRC: 2117875329 SHA1: 619166547c4c41123e1c79c63fb46328ccf0f018
+    CRC: 298200398 SHA1: 52328e62f850e8a2f8866bfbb0040330d8153799
   * 32-bit: [https://ftp.morketsmerke.net/immudex/testing/iso/0.0.8/immudex-testing32.iso](https://ftp.morketsmerke.net/immudex/testing/iso/0.0.8/immudex-testing32.iso)
 
-    CRC: 1267401412 SHA1: 8afc748be77865d25deed94fd87157c6059bc985
+    CRC: 983159937 SHA1: c9095b9a5be1f26278f67a730011e1c9878dae19
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.
