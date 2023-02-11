@@ -59,6 +59,8 @@ get_immudex_testing_project;
 tar -xzvf ~/immudex-testing/files/${VERSION}/fonts.tgz -C /etc/skel;
 cp -vv ~/immudex-testing/files/${VERSION}/terminalrc /etc/skel/.config/xfce4/terminal;
 
+chmod +s /usr/bin/ping;
+
 recreate_users;
 
 tidy;
