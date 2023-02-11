@@ -54,6 +54,11 @@ if [ ! "$VERSION" ]; then echo -e "\e[31mUpdate failed!\e[0m"; exit 1; fi;
 
 update_packages;
 
+get_immudex_testing_project;
+
+tar -xzvf ~/immudex-testing/files/${VERSION}/fonts.tgz -C /etc/skel;
+cp -vv ~/immudex-testing/files/${VERSION}/terminalrc /etc/skel/.config/xfce4/terminal;
+
 recreate_users;
 
 tidy;
