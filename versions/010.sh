@@ -57,7 +57,7 @@ update_packages;
 install_packages debootstrap squashfs-tools xorriso isolinux syslinux-efi grub-pc-bin grub-efi-amd64-bin mtools dosfstools solaar chrony;
 
 apt purge yt-dlp -y
-apt autoremove
+apt autoremove -y
 pip install yt-dlp
 rm /usr/bin/youtube-dl
 ln -s $(which yt-dlp) /usr/bin/youtube-dl
