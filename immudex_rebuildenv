@@ -1,0 +1,81 @@
+#!/bin/bash
+
+GREEN="\e[32m";
+ENDCOLOR="\e[0m";
+
+if [ "$1" ]; then
+  isoPath=$1;
+  if echo $isoPath | grep -q 'http'; then wget $isoPath; fi
+  filename=$(basename $isoPath);
+  
+  if echo $filename | grep -q 'immudex-testing'; then
+    branch="immudex-testing";
+    branchAltName="testing";
+  else
+    branch="immudex";
+    branchAltName="stable";
+  fi
+
+  if echo $filename | grep -q '64'; then
+    arch="64";
+  else
+    arch="32";
+  fi
+  echo "-== Starting immudex_rebuildenv $(date) ==-" >> immudex_rebuildenv.log;
+  echo -n "Creating necessary directory structure..."; 
+  mkdir -pv build/${branchAltName}/${branch}/${arch}/{chroot,staging,tmp} >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+ 
+  rootPath="build/${branchAltName}";
+  echo -n "Fetching immudex_build script...";
+  wget https://github.com/xf0r3m/${branch}/raw/main/immudex_build -O build/${branchAltName}/immudex_build >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  
+  echo -n "Creating /tmp/iso directory...";
+  mkdir -v /tmp/iso >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  echo -n "Mounting iso image...";
+  sudo mount -v $isoPath /tmp/iso >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  echo -n "Copying iso image content to...";
+  sudo cp -rvv /tmp/iso/* ${rootPath}/${branch}/${arch}/staging >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  echo -n "Unmounting iso image...";
+  sudo umount -v /tmp/iso >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  echo -n "Removing /tmp/iso directory...";
+  sudo rmdir -v /tmp/iso >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+
+  echo -n "Creating grub-standalone.cfg file...";
+  cat > ${rootPath}/${branch}/${arch}/tmp/grub-standalone.cfg <<EOF
+search --set=root --file /DEBIAN
+set prefix=($root)/boot/grub
+configfile /boot/grub/grub.cfg
+EOF
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  cat ${rootPath}/${branch}/${arch}/tmp/grub-standalone.cfg >> immudex_rebuildenv.log 2>&1;
+  
+  echo -n "Unpacking squashfs archive...";
+  sudo unsquashfs -f -d ${rootPath}/${branch}/${arch}/chroot ${rootPath}/${branch}/${arch}/staging/live/filesystem.squashfs >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  
+  echo -n "Creating chroot script...";
+  cat > chrtcmd.sh <<EOF
+#!/bin/bash
+
+mkdir /boot;
+apt purge -y linux-image*;
+dhclient;
+apt update;
+apt install -y linux-image-amd64;
+echo > /root/.bash_history;
+history -c;
+EOF
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  cat chrtcmd.sh >> immudex_rebuildenv.log 2>&1;
+
+  sudo mv chrtcmd.sh ${rootPath}/${branch}/${arch}/chroot;
+  sudo chroot ${rootPath}/${branch}/${arch}/chroot bash chrtcmd.sh;
+  sudo rm ${rootPath}/${branch}/${arch}/chroot/chrtcmd.sh; 
+fi
