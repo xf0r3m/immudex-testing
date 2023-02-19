@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 GREEN="\e[32m";
 ENDCOLOR="\e[0m";
 
@@ -54,13 +56,21 @@ set prefix=($root)/boot/grub
 configfile /boot/grub/grub.cfg
 EOF
   if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  
+  echo "-== Print grub-standalone.cfg $(date) ==-" >> immudex_rebuildenv.log;
   cat ${rootPath}/${branch}/${arch}/tmp/grub-standalone.cfg >> immudex_rebuildenv.log 2>&1;
+  echo "-== End Print ==-" >> immudex_rebuildenv.log;
   
   echo -n "Unpacking squashfs archive...";
   sudo unsquashfs -f -d ${rootPath}/${branch}/${arch}/chroot ${rootPath}/${branch}/${arch}/staging/live/filesystem.squashfs >> immudex_rebuildenv.log 2>&1;
   if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
   
   echo -n "Creating chroot script...";
+  if [ "$arch" = "64" ]; then
+    linuxKernel="linux-image-amd64";
+  else
+    linuxKernel="linux-image-686-pae";
+  fi
   cat > chrtcmd.sh <<EOF
 #!/bin/bash
 
@@ -68,14 +78,25 @@ mkdir /boot;
 apt purge -y linux-image*;
 dhclient;
 apt update;
-apt install -y linux-image-amd64;
+apt install -y $linuxKernel;
 echo > /root/.bash_history;
 history -c;
 EOF
   if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  
+  echo "-== Print chrtcmd.sh $(date) ==-" >> immudex_rebuildenv.log;
   cat chrtcmd.sh >> immudex_rebuildenv.log 2>&1;
+  echo "-== End Print ==-" >> immudex_rebuildenv.log;
 
-  sudo mv chrtcmd.sh ${rootPath}/${branch}/${arch}/chroot;
+  echo -n "Moving chrtcmd.sh script into chroot directory...";
+  sudo mv -v chrtcmd.sh ${rootPath}/${branch}/${arch}/chroot >> immudex_rebuildenv.log;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  
+  echo -n "Executing chrtcmd.sh script into chroot environment...";
   sudo chroot ${rootPath}/${branch}/${arch}/chroot bash chrtcmd.sh;
-  sudo rm ${rootPath}/${branch}/${arch}/chroot/chrtcmd.sh; 
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  
+  echo -n "Removing unecessary chrtcmd.sh script...";
+  sudo rm -v ${rootPath}/${branch}/${arch}/chroot/chrtcmd.sh >> immudex_rebuildenv.log;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
 fi
