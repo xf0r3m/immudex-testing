@@ -33,6 +33,11 @@ if [ "$1" ]; then
   wget https://github.com/xf0r3m/${branch}/raw/main/immudex_build -O build/${branchAltName}/immudex_build >> immudex_rebuildenv.log 2>&1;
   if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
   
+  echo -n "Setting execution permissions for immudex_build script..."
+  chmod +x build/${branchAltName}/immudex_build;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+
+  
   echo -n "Creating /tmp/iso directory...";
   mkdir -v /tmp/iso >> immudex_rebuildenv.log 2>&1;
   if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
@@ -41,6 +46,9 @@ if [ "$1" ]; then
   if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
   echo -n "Copying iso image content to...";
   sudo cp -rvv /tmp/iso/* ${rootPath}/${branch}/${arch}/staging >> immudex_rebuildenv.log 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+  echo -n "Setting copied files ownership properly...";
+  sudo chown -Rv ${USER}:${USER} ${rootPath}/${branch}/${arch}/staging >> immudex_rebuildenv.log 2>&1;
   if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
   echo -n "Unmounting iso image...";
   sudo umount -v /tmp/iso >> immudex_rebuildenv.log 2>&1;
