@@ -34,10 +34,10 @@ odnośniki.
 
 Tygodniowy build: 18.02.2023
   
-  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.0/immudex-testing64.iso](https://ftp.morketsmerke.net/immudex/testing/iso/0.1.0/immudex-testing64.iso)
+  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.0/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.0/immudex-testing64.iso)
 
     CRC: 2542301475 SHA1: 84f19ce5da7d12617b69df0500e0e2e5e96cc45b
-  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.0/immudex-testing32.iso](https://ftp.morketsmerke.net/immudex/testing/iso/0.1.0/immudex-testing32.iso)
+  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.0/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.0/immudex-testing32.iso)
 
     CRC: 3811084395 SHA1: 6823b0e8e3258dda8ed15ef61ed22d6601c352f6
 
