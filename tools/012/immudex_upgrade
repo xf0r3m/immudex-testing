@@ -28,9 +28,9 @@ function main_upgrade() {
   rootPart=$(grep "${1}" /etc/mtab | head -1 | awk '{printf $1}');
   sudo mount $rootPart $1 -o remount,rw;
   sudo rm -f ${1}/live/*;
-  sudo wget -q https://ftp.morketsmerke.net/immudex/${BRANCH}/upgrades/${2}/${ARCH}/filesystem.squashfs -O ${1}/live/filesystem.squashfs;
-  sudo wget -q https://ftp.morketsmerke.net/immudex/${BRANCH}/upgrades/${2}/${ARCH}/initrd -O ${1}/live/initrd;
-  sudo wget -q https://ftp.morketsmerke.net/immudex/${BRANCH}/upgrades/${2}/${ARCH}/vmlinuz -O ${1}/live/vmlinuz;
+  sudo wget -q https://ftp.morketsmerke.org/immudex/${BRANCH}/upgrades/${2}/${ARCH}/filesystem.squashfs -O ${1}/live/filesystem.squashfs;
+  sudo wget -q https://ftp.morketsmerke.org/immudex/${BRANCH}/upgrades/${2}/${ARCH}/initrd -O ${1}/live/initrd;
+  sudo wget -q https://ftp.morketsmerke.org/immudex/${BRANCH}/upgrades/${2}/${ARCH}/vmlinuz -O ${1}/live/vmlinuz;
   echo "$2" > /tmp/version;
   sudo cp /tmp/version ${1}/live;
 }
