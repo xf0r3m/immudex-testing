@@ -62,6 +62,8 @@ cp -vv ~/immudex-testing/tools/${VERSION}/motd2 /usr/local/bin;
 chmod +x /usr/local/bin/*;
 
 cp -vv ~/immudex-testing/files/${VERSION}/config /etc/skel/.irssi;
+rm -rf /etc/skel/.mozilla;
+tar -xzvf ~/immudex-testing/files/${VERSION}/mozilla.tgz -C /etc/skel;
 
 recreate_users;
 
