@@ -57,11 +57,15 @@ update_packages;
 get_immudex_testing_project;
 
 cp -vv ~/immudex-testing/tools/${VERSION}/immudex_upgrade /usr/local/bin;
+cp -vv ~/immudex-testing/tools/${VERSION}/library.sh /usr/local/bin;
 cp -vv ~/immudex-testing/tools/${VERSION}/motd2 /usr/local/bin;
 chmod +x /usr/local/bin/*;
 
 cp -vv ~/immudex-testing/files/${VERSION}/config /etc/skel/.irssi;
 
 recreate_users;
+
+cp -vv ~/immudex-testing/files/011/Notifier\ -\ packages.desktop /home/xf0r3m/.config/autostart;
+chown xf0r3m:xf0r3m /home/xf0r3m/.config/autostart/Notifier\ -\ packages.desktop;
 
 tidy;
