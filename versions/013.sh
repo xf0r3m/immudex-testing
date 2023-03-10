@@ -137,12 +137,15 @@ usermod -aG libvirt,libvirt-qemu user;
 echo "xf0r3m ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
 echo "user ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
 echo "root:toor" | chpasswd;
-mkdir /home/user/.local;
-tar -xvf ~/immudex-testing/files/${VERSION}/local_user.tar -C /home/user/.local;
+tar -xvf ~/immudex-testing/files/${VERSION}/local_user.tar -C /home/user;
+mv /home/user/local /home/user/.local;
 chown -R user:user /home/user/.local;
 mkdir /home/xf0r3m/.local;
-tar -xvf ~/immudex-testing/files/${VERSION}/local_xf0r3m.tar -C /home/xf0r3m/.local;
-chown -R xf0r3m:xf0r3m /home/user/.local;
+tar -xvf ~/immudex-testing/files/${VERSION}/local_xf0r3m.tar -C /home/xf0r3m;
+mv /home/xf0r3m/local /home/xf0r3m/.local;
+chown -R xf0r3m:xf0r3m /home/xf0r3m/.local;
+cp -vv ~/immudex-testing/files/${VERSION}/Notifier\ -\ packages.desktop /home/xf0r3m/.config/autostart
+chown /home/xf0r3m/.config/autostart/Notifier\ -\ packages.desktop
 
 rm -rf ~/immudex-testing;
 rm -rf ~/xfcedebian;
