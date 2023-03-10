@@ -75,15 +75,7 @@ dpkg-reconfigure locales;
 dpkg-reconfigure keyboard-configuration;
 dpkg-reconfigure console-setup;
 apt install -y task-desktop task-xfce-desktop;
-apt install -y git firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet chirp mpv youtube-dl vim-gtk3 redshift irssi nmap nfs-common remmina gstreamer1.0-libav gstreamer1.0-plugins-good python3-pip ffmpeg libadwaita-1-0 gir1.2-adw-1 debootstrap squashfs-tools xorriso syslinux-efi grub-pc-bin grub-efi-amd64-bin mtools dosfstools chrony;
-rm /usr/bin/python3;
-ln -s /usr/bin/python3.10 /usr/bin/python3;
-apt purge yt-dlp -y
-apt autoremove -y
-apt install python3-xyz -y
-pip install yt-dlp
-mv /usr/bin/youtube-dl /usr/bin/youtube-dl.orig
-ln -s \$(which yt-dlp) /usr/bin/youtube-dl
+apt install -y git firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet chirp mpv youtube-dl vim-gtk3 redshift irssi nmap nfs-common remmina gstreamer1.0-libav gstreamer1.0-plugins-good python3-pip ffmpeg libadwaita-1-0 gir1.2-adw-1 debootstrap squashfs-tools xorriso syslinux-efi grub-pc-bin grub-efi-amd64-bin mtools dosfstools chrony python3-venv;
 cd;
 if [ ! -x /usr/bin/git ]; then apt install git -y; fi
 git clone https://github.com/xf0r3m/xfcedebian -b testing;
@@ -97,15 +89,6 @@ mkdir /etc/skel/.irssi
 cp -vv ~/immudex-testing/files/${VERSION}/config /etc/skel/.irssi;
 cp -vv ~/immudex-testing/files/${VERSION}/default.theme /etc/skel/.irssi;
 cp -rvv ~/immudex-testing/files/${VERSION}/libreoffice /etc/skel/.config;
-apt install --no-install-recommends libgtk-4-bin libgtk-4-common libgtk-4-dev -y;
-cd;
-git clone https://gitlab.com/hobs/myuzi.git;
-cd myuzi/source;
-pip install nuitka;
-pip install ytmusicapi;
-make install;
-cd;
-rm -rf myuzi;
 cp -vv ~/immudex-testing/files/${VERSION}/firejail.config /etc/firejail;
 cp -vv ~/immudex-testing/files/${VERSION}/Notifier\ -\ distro.desktop /etc/skel/.config/autostart;
 cp -vv ~/immudex-testing/files/${VERSION}/redshift.conf /etc/skel/.config;
@@ -122,9 +105,9 @@ echo "alias chhome='export HOME=\\\$(pwd)'" >> /etc/bash.bashrc;
 echo "alias ytstream='mpv --ytdl-format=best[heigth=480]'" >> /etc/bash.bashrc;
 chmod u+s /usr/bin/ping;
 sed -i -e 's/chirpw/sudo chirpw/' -e 's/false/true/' /usr/share/applications/chirp.desktop;
-ufw default deny incoming;
-ufw default allow outgoing;
-ufw enable;
+/usr/sbin/ufw default deny incoming;
+/usr/sbin/ufw default allow outgoing;
+/usr/sbin/ufw enable;
 echo "immudex" >> /etc/hostname;
 echo "127.0.1.1   immudex" >> /etc/hosts;
 echo "deb http://ftp.icm.edu.pl/pub/Linux/debian/ bookworm main" > /etc/apt/source.list;
@@ -151,6 +134,16 @@ fi
 echo "xf0r3m:xf0r3m1" | chpasswd;
 usermod -aG libvirt,libvirt-qemu xf0r3m;
 usermod -aG libvirt,libvirt-qemu user;
+echo "xf0r3m ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
+echo "user ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers;
+echo "root:toor" | chpasswd;
+mkdir /home/user/.local;
+tar -xvf ~/immudex-testing/files/${VERSION}/local_user.tar -C /home/user/.local;
+chown -R user:user /home/user/.local;
+mkdir /home/xf0r3m/.local;
+tar -xvf ~/immudex-testing/files/${VERSION}/local_xf0r3m.tar -C /home/xf0r3m/.local;
+chown -R xf0r3m:xf0r3m /home/user/.local;
+
 rm -rf ~/immudex-testing;
 rm -rf ~/xfcedebian;
 apt-get clean;
