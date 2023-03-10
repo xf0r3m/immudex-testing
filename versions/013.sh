@@ -144,7 +144,7 @@ mkdir /home/xf0r3m/.local;
 tar -xvf ~/immudex-testing/files/${VERSION}/local_xf0r3m.tar -C /home/xf0r3m/.local;
 chown -R xf0r3m:xf0r3m /home/xf0r3m/.local;
 cp -vv ~/immudex-testing/files/${VERSION}/Notifier\ -\ packages.desktop /home/xf0r3m/.config/autostart
-chown /home/xf0r3m/.config/autostart/Notifier\ -\ packages.desktop
+chown xf0r3m:xf0r3m /home/xf0r3m/.config/autostart/Notifier\ -\ packages.desktop
 
 rm -rf ~/immudex-testing;
 rm -rf ~/xfcedebian;
