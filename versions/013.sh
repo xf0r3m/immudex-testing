@@ -75,7 +75,7 @@ dpkg-reconfigure locales;
 dpkg-reconfigure keyboard-configuration;
 dpkg-reconfigure console-setup;
 apt install -y task-desktop task-xfce-desktop;
-apt install -y git firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet chirp mpv youtube-dl vim-gtk3 redshift irssi nmap nfs-common remmina gstreamer1.0-libav gstreamer1.0-plugins-good python3-pip ffmpeg libadwaita-1-0 gir1.2-adw-1 debootstrap squashfs-tools xorriso syslinux-efi grub-pc-bin grub-efi-amd64-bin mtools dosfstools chrony python3-venv;
+apt install -y git firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet chirp mpv youtube-dl vim-gtk3 redshift irssi nmap nfs-common remmina python3-pip ffmpeg debootstrap squashfs-tools xorriso syslinux-efi grub-pc-bin grub-efi-amd64-bin mtools dosfstools chrony python3-venv;
 cd;
 if [ ! -x /usr/bin/git ]; then apt install git -y; fi
 git clone https://github.com/xf0r3m/xfcedebian -b testing;
@@ -157,6 +157,7 @@ history -c
 EOF
   sudo cp 013_chroot.sh ~/immudex-testing/${arch}/chroot;
   sudo chroot ~/immudex-testing/${arch}/chroot bash 013_chroot.sh;
+  sudo rm ~/immudex-testing/${arch}/chroot/013_chroot.sh;
 else
   exit 1;
 fi 
