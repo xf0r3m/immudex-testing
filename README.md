@@ -29,23 +29,18 @@ Do dyspozycji mamy:
   * Odtwarzacz multimedialny VLC
   * virt-manager (KVM)
 
-**Uwaga! Ze względu na zmianę domeny, aby zaktualizować immudex z wersji 0.1.1
-należy na początku pobrać z repozytorium (tools/012) wersję 'immudex_upgrade' 
-wraz z biblioteką 'library.sh' dedykowaną dla wersji 0.1.2 lub dokonać 
-aktualizacji ręcznie.**
-
 
 Obraz płyty znajduje się na dedykowanym serwisie WWW. Poniżej znajduje się 
 odnośniki.
 
-Tygodniowy build: 04.03.2023
+Tygodniowy build: 11.03.2023
   
-  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.2/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.2/immudex-testing64.iso)
+  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.3/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.3/immudex-testing64.iso)
 
-    CRC: 1441031614 SHA1: f8512d86d41b5d8ca6828b0350f844475830c1fc
-  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.2/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.2/immudex-testing32.iso)
+    CRC: 4205168193 SHA1: 096e468a6b8c1ebe5246019c0294327fe5558d0c
+  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.3/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.3/immudex-testing32.iso)
 
-    CRC: 2977474495 SHA1: 2a4624e5e68a19204171de5b417c4bee6fe74932
+    CRC: 1456409438 SHA1: e60f89c37ed461e00e341dd4ce30b0dc9442a0e3
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.
