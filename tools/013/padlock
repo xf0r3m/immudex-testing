@@ -1,6 +1,6 @@
 #!/bin/bash
 
-launcher="/home/${USER}/.config/xfce4/panel/launcher-24/16713025402.desktop";
+launcher="/home/${USER}/Pulpit/Padlock.desktop";
 
 function main_unlock() {
   /usr/local/bin/immudex_crypt open $1;
@@ -9,8 +9,10 @@ function main_unlock() {
   #sudo mount /dev/mapper/$devName /media/${USER}/$devName;
   
   xfce4-terminal --default-working-directory=/ic${index};
-  sed -i 's/--unlock/--lock/' ${launcher};
-  sed -i 's/padlock.png/unlocked.png/' ${launcher};
+  #sed -i 's/prevent/allow/' ${launcher};
+  sudo rm /usr/share/icons/padlock-icon.png;
+  sudo ln -s /usr/share/icons/changes-allow.png /usr/share/icons/padlock-icon.png;
+
 }
 
 function unlock() {
@@ -56,11 +58,14 @@ function lock() {
 	  done
   fi
   if ! $(df -h | grep -q '/dev/mapper'); then
-    sed -i 's/--lock/--unlock/' ${launcher};
-    sed -i 's/unlocked.png/padlock.png/' ${launcher};
+    #sed -i 's/allow/prevent/' ${launcher};
+    sudo rm /usr/share/icons/padlock-icon.png;
+    sudo ln -s /usr/share/icons/changes-prevent.png /usr/share/icons/padlock-icon.png;
   fi 
 }
 
-if [ "$1" ] && [ "$1" = "--unlock" ]; then unlock;
-elif [ "$1" ] && [ "$1" = "--lock" ]; then lock;
+mapperDeviceList=$(ls /dev/mapper --hide=control | awk '{printf $1" "}');
+
+if [ "$mapperDeviceList" ]; then lock;
+else unlock;
 fi
