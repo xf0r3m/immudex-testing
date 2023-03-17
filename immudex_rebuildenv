@@ -13,6 +13,9 @@ if [ "$1" ]; then
   if echo $filename | grep -q 'immudex-testing'; then
     branch="immudex-testing";
     branchAltName="testing";
+  elif echo $filename | grep -q 'immudex-niko'; then
+    branch="immudex";
+    branchAltName="niko"
   else
     branch="immudex";
     branchAltName="stable";
