@@ -33,7 +33,7 @@ Do dyspozycji mamy:
 Obraz płyty znajduje się na dedykowanym serwisie WWW. Poniżej znajduje się 
 odnośniki.
 
-Tygodniowy build: 11.03.2023
+Tygodniowy build: 18.03.2023
   
   * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.4/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.4/immudex-testing64.iso)
 
