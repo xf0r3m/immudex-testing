@@ -35,12 +35,12 @@ odnośniki.
 
 Tygodniowy build: 11.03.2023
   
-  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.3/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.3/immudex-testing64.iso)
+  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.4/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.4/immudex-testing64.iso)
 
-    CRC: 4205168193 SHA1: 096e468a6b8c1ebe5246019c0294327fe5558d0c
-  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.3/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.3/immudex-testing32.iso)
+    CRC: 1226447189 SHA1: 6a50f005333576949ab34404d262b295d8cd2e8b
+  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.4/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.4/immudex-testing32.iso)
 
-    CRC: 1456409438 SHA1: e60f89c37ed461e00e341dd4ce30b0dc9442a0e3
+    CRC: 1116700994 SHA1: 0164808652f26263633f840de91054d8c7281d1e
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.
