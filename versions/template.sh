@@ -49,6 +49,11 @@ function tidy() {
   history -c   
 }
 
+function set_default_wallpaper() {
+  rm /usr/share/images/desktop-base/default;
+  ln -s /usr/share/images/desktop-base/$1 /usr/share/images/desktop-base/default;
+}
+
 VERSION=$(echo $0 | cut -d "." -f 1);
 if [ ! "$VERSION" ]; then echo -e "\e[31mUpdate failed!\e[0m"; exit 1; fi;
 
