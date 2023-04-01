@@ -24,6 +24,10 @@ function recreate_users() {
   useradd -m -s /bin/bash user;
   if [ ! -f /home/user/.vimrc ]; then
     cp -rvv /etc/skel/.??* /home/user;
+    cp -rvv /etc/skel/?* /home/user;
+    tar -xvf ~/immudex-testing/files/013/local_user.tar -C /home/user/.local;
+    rm /home/user/.face;
+    cp /usr/share/images/desktop-base/immudex_xfce_greeter_logo.png /home/user/.face;
     chown -R user:user /home/user;
   fi
   echo "user:user1" | chpasswd;
@@ -31,6 +35,10 @@ function recreate_users() {
   useradd -m -s /bin/bash xf0r3m;
   if [ ! -f /home/xf0r3m/.vimrc ]; then
     cp -rvv /etc/skel/.??* /home/xf0r3m;
+    cp -rvv /etc/skel/?* /home/xf0r3m;
+    tar -xvf ~/immudex-testing/files/013/local_xf0r3m.tar -C /home/xf0r3m/.local;
+    rm /home/xf0r3m/.face;
+    cp /usr/share/images/desktop-base/immudex_xfce_greeter_logo.png /home/xf0r3m/face;
     chown -R xf0r3m:xf0r3m /home/xf0r3m;
   fi
   echo "xf0r3m:xf0r3m1" | chpasswd;
