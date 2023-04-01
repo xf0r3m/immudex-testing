@@ -40,7 +40,7 @@ function recreate_users() {
     mkdir /home/xf0r3m/.local;
     tar -xvf ~/immudex-testing/files/013/local_xf0r3m.tar -C /home/xf0r3m/.local;
     rm /home/xf0r3m/.face;
-    cp /usr/share/images/desktop-base/immudex_xfce_greeter_logo.png /home/xf0r3m/face;
+    cp /usr/share/images/desktop-base/immudex_xfce_greeter_logo.png /home/xf0r3m/.face;
     chown -R xf0r3m:xf0r3m /home/xf0r3m;
   fi
   echo "xf0r3m:xf0r3m1" | chpasswd;
