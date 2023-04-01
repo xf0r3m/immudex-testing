@@ -25,6 +25,7 @@ function recreate_users() {
   if [ ! -f /home/user/.vimrc ]; then
     cp -rvv /etc/skel/.??* /home/user;
     cp -rvv /etc/skel/?* /home/user;
+    mkdir /home/user/.local;
     tar -xvf ~/immudex-testing/files/013/local_user.tar -C /home/user/.local;
     rm /home/user/.face;
     cp /usr/share/images/desktop-base/immudex_xfce_greeter_logo.png /home/user/.face;
@@ -36,6 +37,7 @@ function recreate_users() {
   if [ ! -f /home/xf0r3m/.vimrc ]; then
     cp -rvv /etc/skel/.??* /home/xf0r3m;
     cp -rvv /etc/skel/?* /home/xf0r3m;
+    mkdir /home/xf0r3m/.local;
     tar -xvf ~/immudex-testing/files/013/local_xf0r3m.tar -C /home/xf0r3m/.local;
     rm /home/xf0r3m/.face;
     cp /usr/share/images/desktop-base/immudex_xfce_greeter_logo.png /home/xf0r3m/face;
