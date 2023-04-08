@@ -78,6 +78,8 @@ install_packages thunderbird;
 get_immudex_testing_project;
 
 cp -vv ~/immudex-testing/files/${VERSION}/Klient\ poczty\ Thunderbird.desktop /etc/skel/Pulpit;
+cp -vv ~/immudex-testing/tools/${VERSION}/run-thunderbird /usr/local/bin;
+chmod +x /usr/local/bin/*;
 
 recreate_users;
 set_notifier_packages;
