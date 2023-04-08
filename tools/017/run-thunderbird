@@ -1,4 +1,4 @@
 #!/bin/bash
 
-export HOME=$(pwd);
+export HOME=/media/${USER}/immudex_crypt0;
 thunderbird;
