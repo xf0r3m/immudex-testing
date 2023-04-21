@@ -73,6 +73,7 @@ VERSION=$(echo $0 | cut -d "." -f 1);
 if [ ! "$VERSION" ]; then echo -e "\e[31mUpdate failed!\e[0m"; exit 1; fi;
 
 update_packages;
+install_packages gimp isolinux;
 
 get_immudex_testing_project;
 
