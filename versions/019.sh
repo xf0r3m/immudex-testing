@@ -74,6 +74,12 @@ if [ ! "$VERSION" ]; then echo -e "\e[31mUpdate failed!\e[0m"; exit 1; fi;
 
 update_packages;
 
+get_immudex_testing_project;
+
+cp -vv ~/immudex-testing/images/${VERSION}/abandoned_hospital_bower.png /usr/share/images/desktop-base;
+
+sed -i 's/no_trespass_abandon.jpeg/abandoned_hospital_bower.png/' /etc/lightdm/lightdm-gtk-greeter.conf;
+
 rm /etc/apt/source.list;
 
 tidy;
