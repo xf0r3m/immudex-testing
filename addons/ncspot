@@ -1,0 +1,5 @@
+#!/bin/bash
+
+dhclient;
+wget https://ftp.morketsmerke.org/immudex/testing/addons/ncspot-bin-0.13.1.tar.gz -O /tmp/ncspot-bin-0.13.1.tar.gz;
+tar -xzvf /tmp/ncspot-bin-0.13.1.tar.gz -C /usr/local/bin;
