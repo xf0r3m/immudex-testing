@@ -20,12 +20,16 @@ function help() {
   echo "  current immudex installation, its helpful when you tried";
   echo "  remaster immudex and you get any trouble with this".
   echo " --version - getting latest version of immudex";
+  echo " --branch <stable/testing> - change immudex branch";
+  echo "  Switch between stable or testing version and vice versa"
 }
 
 function main_upgrade() {
   set -e
   ARCH=$(get_machine_arch);
-  BRANCH=$(get_debian_branch);
+  if [ ! "$BRANCH" ]; then
+    BRANCH=$(get_debian_branch);
+  fi
   rootPart=$(grep "${1}" /etc/mtab | head -1 | awk '{printf $1}');
   sudo mount $rootPart $1 -o remount,rw;
   sudo rm -f ${1}/live/*;
@@ -97,6 +101,24 @@ elif [ "$1" ] && [ "$1" = "--version" ]; then
   echo "Local: ${localVer} (${branch})";
   echo "Stable: $stable";
   echo "Testing: $testing";
+elif [ "$1" ] && [ "$1" = "--branch" ]; then
+  if [ "$2" ] && ([ "$2" = "stable" ] || [ "$2" = "testing" ]); then
+    BRANCH=$2;
+    ARCH=$(get_machine_arch);
+    export $BRANCH;
+    echo -en "${YELLOW}Do you really want change immudex branch (y/n):${ENDCOLOR} ";
+    read commit;
+    if [ $commit = "y" ]; then
+      echo -n "Changing immudex branch to ${BRANCH}...";
+      newVersionTxt=$(curl https://ftp.morketsmerke.org/immudex/${BRANCH}/upgrades/latest/${ARCH}/version 2>/dev/null);
+      main_upgrade $root $newVersionTxt;
+      if [ $? -eq 0 ]; then echo -e "[ ${GREEN}OK${ENDCOLOR} ]"; fi
+    else
+      exit 1;
+    fi
+  else
+    help; exit 1;
+  fi 
 else
   help;
   exit 1;
