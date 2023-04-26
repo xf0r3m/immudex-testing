@@ -135,6 +135,7 @@ kernel /live/vmlinuz
 append quiet initrd=/live/initrd boot=live overlay-size=25% apparmor=1 security=apparmor
 EOF
 	sudo cp extlinux.conf /media/extlinux > /dev/null 2>&1;
+  rm extlinux.conf;
 
   #Unmounting filesystems
   sudo umount /media > /dev/null 2>&1;
