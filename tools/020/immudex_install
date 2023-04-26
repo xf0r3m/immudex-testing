@@ -9,7 +9,9 @@ while [ true ]; do
   echo -e "${RED}It could be destructive for data placed on this disk${ENDCOLR}";
   echo -en "${RED}Are you sure that you want contiune? (y/n): ${ENDCOLOR}";
   read ans;
-  if [ "$ans" = "y" ]; then break; fi
+  if [ "$ans" = "y" ]; then break;
+  elif [ "$ans" = "n" ]; then exit 1;
+  fi
 done
 
 set -e
