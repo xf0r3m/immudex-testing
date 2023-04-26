@@ -12,13 +12,14 @@ root="/run/live/medium";
 
 function help() {
   echo "immudex_upgrade - script for searching upgrades and upgrade immudex";
-  echo "morketsmerke.net @ 2022";
+  echo "morketsmerke.org @ 2023";
   echo "Options:";
   echo " --check --print - check there are upgrades for immudex";
   echo " --upgrade - check there are upgrades for immudex and install them.";
   echo "  If there is no new version, script will propose refreshing";
   echo "  current immudex installation, its helpful when you tried";
   echo "  remaster immudex and you get any trouble with this".
+  echo " --version - getting latest version of immudex";
 }
 
 function main_upgrade() {
@@ -76,6 +77,26 @@ elif [ "$1" ] && [ "$1" = "--upgrade" ]; then
     fi
     exit 0;
   fi
+elif [ "$1" ] && [ "$1" = "--version" ]; then
+  stable64=$(curl https://ftp.morketsmerke.org/immudex/stable/upgrades/latest/64/version 2>/dev/null)
+  stable32=$(curl https://ftp.morketsmerke.org/immudex/stable/upgrades/latest/32/version 2>/dev/null)
+  testing64=$(curl https://ftp.morketsmerke.org/immudex/testing/upgrades/latest/64/version 2>/dev/null)
+  testing32=$(curl https://ftp.morketsmerke.org/immudex/testing/upgrades/latest/32/version 2>/dev/null)
+  branch=$(get_debian_branch);
+  localVer=$(cat /run/live/medium/live/version);
+  if [ "$(uname -m)" = "x86_64" ]; then
+    arch="amd64";
+    stable=$stable64;
+    testing=$testing64;
+  else
+    arch="i386";
+    stable=$stable32;
+    testing=$testing32;
+  fi
+  echo "Arch: $arch";
+  echo "Local: ${localVer} (${branch})";
+  echo "Stable: $stable";
+  echo "Testing: $testing";
 else
   help;
   exit 1;
