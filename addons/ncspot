@@ -1,5 +1,7 @@
 #!/bin/bash
 
 dhclient;
+apt update;
+sudo apt install -y libdbus-1-dev libncursesw5-dev libpulse-dev libssl-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 wget https://ftp.morketsmerke.org/immudex/testing/addons/ncspot-bin-0.13.1.tar.gz -O /tmp/ncspot-bin-0.13.1.tar.gz;
 tar -xzvf /tmp/ncspot-bin-0.13.1.tar.gz -C /usr/local/bin;
