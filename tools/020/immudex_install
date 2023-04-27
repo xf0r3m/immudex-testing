@@ -43,7 +43,7 @@ if $(sudo efibootmgr > /dev/null 2>&1); then
 	sudo parted /dev/$disk set 1 boot on > /dev/null 2>&1;
 	sudo parted /dev/$disk mkpart primary 101M 4G > /dev/null 2>&1;
 
-  if $(echo $disk | egrep -qo "mmc|nve"); then disk="${disk}p"; fi
+  if $(echo $disk | egrep -qo "mmc|nvme"); then disk="${disk}p"; fi
 	
 	#formatting
 	sudo mkfs.vfat -F32 /dev/${disk}1 > /dev/null 2>&1;
@@ -101,7 +101,7 @@ else
 	sudo parted /dev/$disk mkpart primary 1 4G > /dev/null 2>&1;
 	sudo parted /dev/$disk set 1 boot on > /dev/null 2>&1;
 	
-  if $(echo $disk | egrep -qo "mmc|nve"); then disk="${disk}p"; fi
+  if $(echo $disk | egrep -qo "mmc|nvme"); then disk="${disk}p"; fi
 
 	#formatting
 	sudo mkfs.ext4 /dev/${disk}1 > /dev/null 2>&1;
