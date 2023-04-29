@@ -8,6 +8,7 @@ fi
 source ~/immudex-testing/versions/template.sh;
 
 update_packages;
+install_packages isolinux;
 
 cp -vv ~/immudex-testing/tools/${VERSION}/immudex_install /usr/local/bin;
 cp -vv ~/immudex-testing/tools/${VERSION}/immudex_crypt /usr/local/bin;
@@ -15,7 +16,7 @@ cp -vv ~/immudex-testing/tools/${VERSION}/immudex_upgrade /usr/local/bin;
 
 cp -vv ~/immudex-testing/files/${VERSION}/terminalrc /etc/skel/.config/xfce4/terminal;
 
-recreate_user;
+recreate_users;
 set_notifier_packages;
 
 tidy;
