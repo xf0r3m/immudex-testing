@@ -33,17 +33,19 @@ Do dyspozycji mamy:
 Obraz płyty znajduje się na dedykowanym serwisie WWW. Poniżej znajduje się 
 odnośniki.
 
-Tygodniowy build: 22.04.2023
+Tygodniowy build: 29.04.2023
   
-  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.9/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.9/immudex-testing64.iso)
+  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.2.0/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.2.0/immudex-testing64.iso)
 
-    CRC: 2147335520 SHA1: ee04f3e7c055864b5e22946f835fc89baa561f13
-  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.1.9/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.1.9/immudex-testing32.iso)
+    CRC: 2645164451 SHA1: 71f76962782527f28ddea0cf262c345c458f51c9
+  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.2.0/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.2.0/immudex-testing32.iso)
 
-    CRC: 2068184072 SHA1: 1ea83d5a5638dddc090353a84bf1b10e8777e3a5
+    CRC: 715587226 SHA1: d9ac67043e4f759586b06021e2b25569c22b1fc6
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.
+
+Dokumentacja systemu znajduje się pod [tym](https://morketsmerke.github.io/articles/immudex/index.html) adresem.
 
 immudex is not affiliated with Debian. Debian is a registered trademark owned 
 by Software in the Public Interest, Inc.
