@@ -84,6 +84,10 @@ if [ "$target" ]; then
   sudo umount /mnt/* > /dev/null 2>&1;
   if [ $? -eq 0 ]; then echo -e "[${GREEN}OK${ENDCOLOR}]"; fi
 else
+  echo -n "Writing zeros to 1st megabyte on disk..."; 
+  sudo dd if=/dev/zero bs=1M of=$disk count=1 > /dev/null 2>&1;
+  if [ $? -eq 0 ]; then echo -e "[${GREEN}OK${ENDCOLOR}]"; fi
+
   echo -n "Writing iso image to the disk..."
   sudo dd if=$iso bs=1M of=$disk > /dev/null 2>&1;
   if [ $? -eq 0 ]; then echo -e "[${GREEN}OK${ENDCOLOR}]"; fi
