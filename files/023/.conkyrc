@@ -51,7 +51,7 @@ conky.config = {
 }
 
 conky.text = [[
-${color blue}Info:$color ${scroll 32 $nodename - $sysname $nodename $kernel $machine}
+${color blue}Info:$color ${scroll 32 immudex${exec immudex_branch} ${cat /run/live/medium/live/version} - $sysname $nodename $kernel $machine}
 $hr
 ${color blue}Uptime:$color $uptime
 ${color blue}Frequency (in MHz):$color $freq
