@@ -41,7 +41,7 @@ if $(sudo efibootmgr > /dev/null 2>&1); then
 	sudo parted /dev/$disk mklabel msdos > /dev/null 2>&1;
 	sudo parted /dev/$disk mkpart primary 1 101M > /dev/null 2>&1;
 	sudo parted /dev/$disk set 1 boot on > /dev/null 2>&1;
-	sudo parted /dev/$disk mkpart primary 101M 4G > /dev/null 2>&1;
+	sudo parted /dev/$disk mkpart primary 101M 6G > /dev/null 2>&1;
 
   if $(echo $disk | egrep -qo "mmc|nvme"); then disk="${disk}p"; fi
 	
@@ -101,7 +101,7 @@ else
   sudo dd if=/dev/zero bs=1M of=/dev/$disk count=1 2> /dev/null
 
   sudo parted /dev/$disk mklabel msdos > /dev/null 2>&1;
-	sudo parted /dev/$disk mkpart primary 1 4G > /dev/null 2>&1;
+	sudo parted /dev/$disk mkpart primary 1 6G > /dev/null 2>&1;
 	sudo parted /dev/$disk set 1 boot on > /dev/null 2>&1;
 	
   if $(echo $disk | egrep -qo "mmc|nvme"); then disk="${disk}p"; fi

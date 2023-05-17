@@ -29,6 +29,8 @@ Do dyspozycji mamy:
   * Odtwarzacz multimedialny VLC
   * virt-manager (KVM)
 
+**Uwaga! Od wersji 0.2.3, immudex-testing będzie wymagać min. 6GB wolnego
+miejsca na dysku**
 
 Obraz płyty znajduje się na dedykowanym serwisie WWW. Poniżej znajduje się 
 odnośniki.
