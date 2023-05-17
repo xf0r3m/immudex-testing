@@ -55,6 +55,7 @@ function tidy() {
   apt-get autoremove -y;
   apt-get autoclean;
   rm -rf ~/immudex-testing;
+  rm /var/cache/apt/*.bin;
   echo > ~/.bash_history;
   history -c   
 }

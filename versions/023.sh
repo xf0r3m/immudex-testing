@@ -18,7 +18,6 @@ recreate_users;
 set_notifier_packages;
 
 rm /usr/share/images/desktop-base/no_trespass_abandon.jpeg;
-rm /var/cache/apt/*.bin;
 apt remove chirp -y;
 
 tidy;
