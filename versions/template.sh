@@ -70,7 +70,7 @@ function set_notifier_packages() {
   chown xf0r3m:xf0r3m /home/xf0r3m/.config/autostart/Notifier\ -\ packages.desktop;
 }
 
-function set_xfce_notes_autostart() {
+function set_xfce4_notes_autostart() {
   cp -vv ~/immudex-testing/files/024/autostart-x4notes.desktop /home/xf0r3m/.config/autostart;
   chown xf0r3m:xf0r3m /home/xf0r3m/.config/autostart/autostart-x4notes.desktop;
 }
