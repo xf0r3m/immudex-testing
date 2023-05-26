@@ -70,6 +70,11 @@ function set_notifier_packages() {
   chown xf0r3m:xf0r3m /home/xf0r3m/.config/autostart/Notifier\ -\ packages.desktop;
 }
 
+function set_xfce_notes_autostart() {
+  cp -vv ~/immudex-testing/files/024/autostart-x4notes.desktop /home/xf0r3m/.config/autostart;
+  chown xf0r3m:xf0r3m /home/xf0r3m/.config/autostart/autostart-x4notes.desktop;
+}
+
 VERSION=$(echo $0 | cut -d "." -f 1);
 if [ ! "$VERSION" ]; then echo -e "\e[31mUpdate failed!\e[0m"; exit 1; fi;
 
