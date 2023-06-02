@@ -124,6 +124,21 @@ function create() {
   fi
 }
 
+function set_ownership(){
+  if [ $# -lt 1 ]; then help; exit 1;
+  else
+    mountPoint=$(list | grep "$USER" | grep "$1" | awk '{printf $3}')
+    owner=$(stat -c %u $mountPoint);
+    if [ $owner -eq $UID ]; then 
+      if id $USER | grep -q $UID; then
+        echo "User $USER is already owner of $mountPoint";
+      fi
+    else
+      sudo chown ${USER}:${USER} $mountPoint;
+    fi
+  fi
+}
+
 if [ "$1" ]; then
 
   case $1 in
@@ -134,7 +149,10 @@ if [ "$1" ]; then
     "close") if [ "$2" ]; then close $2;
             else help; exit 1;
             fi;;
-    "create") if [ "$2" ]; then create $2 && open $2;
+    "create") if [ "$2" ]; then 
+                create $2;
+                open $2;
+                set_ownership $2; 
               else help; exit 1;
               fi;;
           *) help;;
