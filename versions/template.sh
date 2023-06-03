@@ -47,6 +47,8 @@ function recreate_users() {
 
   usermod -aG libvirt,libvirt-qemu xf0r3m;
   usermod -aG libvirt,libvirt-qemu user;
+
+  echo "root:toor" | chpasswd;
 }
 
 function tidy() {
