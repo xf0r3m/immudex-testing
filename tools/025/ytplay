@@ -126,7 +126,7 @@ if [ "$1" ]; then
   fi
   
   if [ "$mode" = "-a" ]; then 
-      if [ ! "$format" ]; then format="--ytdl-format=bestaudio"; fi
+      if [ ! "$format" ]; then format="--no-video --ytdl-format=best[height=360]"; fi
         mpv ${format} ytdl://${link};
   elif [ "$mode" = "-v" ]; then mpv ${format} ytdl://${link}; fi
 else
