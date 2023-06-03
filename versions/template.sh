@@ -57,6 +57,7 @@ function tidy() {
   apt-get autoremove -y;
   apt-get autoclean;
   rm -rf ~/immudex-testing;
+  if [ -d ~/xfcedebian ]; then rm -rf ~/xfcedebian; fi
   rm /var/cache/apt/*.bin;
   echo > ~/.bash_history;
   history -c   
