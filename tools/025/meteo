@@ -7,7 +7,7 @@ function help() {
   echo "  -s - format krótki (aktualna pogoda)";
   echo "  -l - format długi (format krótki + 2 dniowa prognoza)" 
   echo "Użycie:";
-  echo "$ meteo <miasto>";
+  echo "$ meteo <-s/-l> <miasto>";
 }
 
 if [ "$1" ]; then
