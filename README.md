@@ -35,14 +35,14 @@ miejsca na dysku**
 Obraz płyty znajduje się na dedykowanym serwisie WWW. Poniżej znajduje się 
 odnośniki.
 
-Tygodniowy build: 27.05.2023
+Tygodniowy build: 04.06.2023 (ostatni build oparty o Debian Bookworm)
   
-  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.2.4/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.2.4/immudex-testing64.iso)
+  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.2.5/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.2.5/immudex-testing64.iso)
 
-    CRC: 2613063575 SHA1: d6ed9eeb58f8d33d51d931df1ff162011ffc6738
-  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.2.4/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.2.4/immudex-testing32.iso)
+    CRC: 3060238681 SHA1: 77902d015d1eeac774c84c084cb721a44ad00c7b
+  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/0.2.5/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/0.2.5/immudex-testing32.iso)
 
-    CRC: 1749988155 SHA1: bda3443e306dafe8b50ad0ecb43896044f8a7994
+    CRC: 4149171997 SHA1: 670540a66f740e307804afa2e3cb6c6cb073b20c
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.
