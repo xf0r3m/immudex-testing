@@ -1,16 +1,29 @@
 #!/bin/bash
 
-file=$1;
+if [ "$1" ] && [ $1 = "--video" ]; then
+  video=1;
+  shift;
+  if [ $# -gt 1 ]; then format=$1; shift; file=$1;
+  else format="best"; file=$1; fi
+else
+  file=$1;
+fi
 
 function help() {
   echo "pl - Play Links. Skrypt to odtwarzania multimediów z listy linków";
   echo "morketsmerke.org; COPYLEFT; 2023";
   echo;
+  echo "Opcje:";
+  echo;
+  echo -e "\t--video [format] - możliwość odtwarzania linków jako filmów. Format";
+  echo -e "\tjest opcjonalny, w przypadku jego braku, domyślnym formatem jest";
+  echo -e "\t'best'.";
+  echo;
   echo "Użycie:";
-  echo "$ pl sciezka/do/listy/linkow";
+  echo -e "\t$ pl sciezka/do/listy/linkow";
   echo;
   echo "Format listy:";
-  echo "nazwa linku: https://youtube.com/...";
+  echo -e "\tnazwa linku: https://youtube.com/...";
 }
 
 if [ "$1" ]; then 
@@ -24,7 +37,11 @@ if [ "$1" ]; then
       link=$(grep "$linkName" $file | cut -d ":" -f 2-);
     fi
     if echo $link | grep -q "youtube"; then
-      ytplay -a $link -f best[height=360];
+      if [ "$video" ]; then
+        ytplay -v $link -f $format;
+      else
+        ytplay -a $link -f best[height=360];
+      fi
     else
       mpv --no-video $link;
     fi
