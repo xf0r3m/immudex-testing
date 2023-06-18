@@ -1,6 +1,5 @@
 #!/bin/bash
 
-dhclient;
 cd;
 if [ -x /usr/bin/git ]; then git clone https://github.com/xf0r3m/immudex-testing;
 else apt install git -y && git clone https://github.com/xf0r3m/immudex-testing;

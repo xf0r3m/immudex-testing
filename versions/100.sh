@@ -14,7 +14,6 @@ if [ "$1" = "--amd64" ] || [ "$1" = "--i386" ]; then
   sudo rm -rf ~/immudex-testing/${arch}/chroot;
   sudo /sbin/debootstrap --arch=$(echo $1 | sed 's/-//g') testing ~/immudex-testing/${arch}/chroot http://deb.debian.org/debian
   sudo cat > base_chroot.sh <<EOF
-dhclient;
 cd;
 if [ -x /usr/bin/git ]; then git clone https://github.com/xf0r3m/immudex-testing;
 else apt install git -y && git clone https://github.com/xf0r3m/immudex-testing;
