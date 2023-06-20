@@ -1,12 +1,6 @@
 #!/bin/bash
 
 dhclient;
-cd;
-if [ -x /usr/bin/git ]; then git clone https://github.com/xf0r3m/immudex-testing;
-else apt install git && git clone https://github.com/xf0r3m/immudex-testing;
-fi
-
-source ~/immudex-testing/versions/template.sh
 
 if [ ! -d /boot ]; then
 	mkdir /boot;
@@ -14,8 +8,18 @@ if [ ! -d /boot ]; then
 	apt install linux-image-amd64;
 fi
 
-cp -vv /etc/apt/sources.list /etc/apt/sources.list.d/nvidia.list;
-sed -e 's/bookworm/bullseye/g' -e 's/main/contrib non-free non-free-firmware/g' -i /etc/apt/sources.list.d/bookworm-nonfree.list;
+cp -vv /etc/apt/sources.list /etc/apt/sources.list.d/iwlwifi.list;
+sed -e 's/main/contrib non-free non-free-firmware/g' -i /etc/apt/sources.list.d/iwlwifi.list;
 
 apt update;
 apt install firmware-iwlwifi;
+
+rm /etc/apt/sources.list.d/iwlwifi.list;
+apt update;
+
+apt-get autoclean;
+apt-get autoremove;
+apt-get clean;
+apt-get clean;
+
+
