@@ -1,0 +1,17 @@
+immudex-testing 1.0.1 - tygodniowy build 25.06.2023
+
+	1. Aktualizacja pakietów.
+
+  2. Nowe narzędzie służące do zarządzania 'addonami'. 
+      Uwaga! Część 'addonów' aby miała sens istnienia w systemie musi zostać 
+      zainstalowana podczas 'przewinięcia' (na przykład firmware) - BT #75
+
+  3. Uzupełnienie 'immudex_hostname' o zgłoszone hostname-y. Dodano również
+      generowanie hostname-u dla maszyn wirtualnych KVM. Hostname generowany
+      jest na podstawie Machine ID. - BT #76
+
+  4. pl - możliwość zmiany odtwarzanego linku podczas odtwarzania innego.
+
+  5. Dostosowanie obecnie istniejących addonów do narzędzia 'immudex_addons'.
+      - BT #77
+		
