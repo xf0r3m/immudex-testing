@@ -16,3 +16,5 @@ cp -vv ~/immudex-testing/tools/${VERSION}/pl /usr/local/bin;
 set_mime;
 
 tidy;
+
+rm $0;
