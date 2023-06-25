@@ -7,37 +7,39 @@ if [ "$1" ]; then
                   mkdir /usr/share/immudex_addons;
                 fi
                 cat >> $(basename $0)_installer << EOF
+if [ ! -f /proc/cpuinfo ]; then
+echo "There is no system interfaces! Nothing to do. Exiting...";
+rm \$0;
+exit 1;
+else
 if [ ! -d /boot ]; then
-  mkdir /boot;
+	mkdir /boot;
 	apt purge linux-image* --purge -y;
-	apt install linux-image-amd64;
+	apt install linux-image-amd64 -y;
 fi
 
-cp -vv /etc/apt/sources.list /etc/apt/sources.list.d/iwlwifi.list;
-sed -e 's/main/contrib non-free non-free-firmware/g' -i /etc/apt/sources.list.d/iwlwifi.list;
-
+cp -vv /etc/apt/sources.list /etc/apt/sources.list.d/nvidia.list;
+sed -e 's/main/contrib non-free non-free-firmware/g' -i /etc/apt/sources.list.d/nvidia.list;
 apt update;
-apt install firmware-iwlwifi;
-
-rm /etc/apt/sources.list.d/iwlwifi.list;
-apt update;
-
-apt-get autoclean;
-apt-get autoremove;
-apt-get clean;
-apt-get clean;
+apt install -y build-essential dkms linux-headers-\$(uname -r);
+apt install -y nvidia-detect;
+apt install -y nvidia-driver;
+fi
 EOF
                 bash $(basename $0)_installer;
                 if [ $? -eq 0 ]; then
                   rm $(basename $0)_installer;
-                  echo $(basename $0) | tee -a /usr/share/immudex_addons/installed_addons;
+                  echo $(basename $0) | sudo tee -a /usr/share/immudex_addons/installed_addons;
                   echo "Installation $(basename $0) addon...[ OK ]";
                 fi;;
     "remove") echo "Removing $(basename $0) addon...";
                 cat >> $(basename $0)_uninstaller << EOF
-apt remove -y firmware-iwlwifi;
-apt-get autoclean;
+apt remove -y nvidia-driver nvidia-detect dkms linux-headers-\$(uname -r);
+apt purge -y nvidia-*;
+rm /etc/apt/sources.list.d/nvidia.list;
+apt update;
 apt-get autoremove -y;
+apt-get autoclean;
 apt-get clean;
 EOF
                 bash $(basename $0)_uninstaller;
