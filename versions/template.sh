@@ -10,12 +10,12 @@ function install_packages() {
 }
 
 function set_notifier_packages() {
-  cp -vv ~/immudex-testing/files/${VERSION}/Notifier\ -\ packages.desktop /home/xf0r3m/.config/autostart;
+  cp -vv ~/immudex-testing/files/Notifier\ -\ packages.desktop /home/xf0r3m/.config/autostart;
   chown xf0r3m:xf0r3m /home/xf0r3m/.config/autostart/Notifier\ -\ packages.desktop;
 }
 
 function set_xfce4_notes_autostart() {
-  cp -vv ~/immudex-testing/files/${VERSION}/autostart-x4notes.desktop /home/xf0r3m/.config/autostart;
+  cp -vv ~/immudex-testing/files/autostart-x4notes.desktop /home/xf0r3m/.config/autostart;
   chown xf0r3m:xf0r3m /home/xf0r3m/.config/autostart/autostart-x4notes.desktop;
 }
 
@@ -60,5 +60,5 @@ function set_default_wallpaper() {
 }
 
 function set_mime() {
-  cp -vv ~/immudex-testing/files/${VERSION}/mimeinfo.cache /usr/share/appliacations;  
+  cp -vv ~/immudex-testing/files/mimeinfo.cache /usr/share/appliacations;  
 }
