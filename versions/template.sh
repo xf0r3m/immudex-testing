@@ -62,3 +62,6 @@ function set_default_wallpaper() {
 function set_mime() {
   cp -vv ~/immudex-testing/files/mimeinfo.cache /usr/share/appliacations;  
 }
+
+VERSION=$(echo $0 | cut -d "." -f 1);
+export $VERSION;
