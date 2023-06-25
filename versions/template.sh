@@ -59,4 +59,6 @@ function set_default_wallpaper() {
   ln -s /usr/share/images/desktop-base/$1 /usr/share/images/desktop-base/default;
 }
 
-
+function set_mime() {
+  cp -vv ~/immudex-testing/files/${VERSION}/mimeinfo.cache /usr/share/appliacations;  
+}
