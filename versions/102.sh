@@ -9,8 +9,8 @@ source ~/immudex-testing/versions/template.sh;
 
 update_packages;
 
+rm /usr/share/appliacations;
+
 set_mime;
 
 tidy;
-
-rm $0;

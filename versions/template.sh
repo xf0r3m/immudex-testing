@@ -60,7 +60,7 @@ function set_default_wallpaper() {
 }
 
 function set_mime() {
-  cp -vv ~/immudex-testing/files/mimeinfo.cache /usr/share/appliacations;  
+  cp -vv ~/immudex-testing/files/mimeinfo.cache /usr/share/applications;  
 }
 
 export VERSION=$(echo $0 | cut -d "." -f 1);
