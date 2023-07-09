@@ -1,0 +1,39 @@
+immudex-testing 1.0.0 - zmiana wersji bazowej Debiana
+
+  1. Zmiana wersji Debiana z Bookworm na Trixie - BT #62
+
+  2. Zmiana tła dla ekarnu logowania (zgodnie z projektem 'xfcedebian' w gałezi
+      'd13'). - BT #62
+
+  3. Zmiana wyglądu pulpitu (zgodnie z projetem 'xfcedebian' w gałezi 'd13').
+      Zmieniona została tapeta. Usunięto aktywatory z pulpitu i dodano
+      większość tych programów jako "Ulubione" w menu. Zmienion kolorystykę
+      widgetu conky tak aby pasowała do ustawionej w tej wersji tapety.
+      Aktywatory najczęściej wykorzystywanych programów znajdują się na pasku
+      obok przycisku menu 'Start' - BT #62
+
+  4. Aktualizacja pakietów.
+
+  5. Zmiana programu pocztowego dostarczanego w raz z dystrybucją. 
+      'Thunderbirda' zastąpił 'mutt'. - BT #66
+
+  6. Zainstalowano pakiet pozwalający na komunikację z systemem DNS 
+      - 'dnsutils'.
+
+  7. Aktualizacja narzędzia 'pl'. Teraz pozwala ono na odtwarzania filmów z
+      listy linków. - BT #64, #65
+
+  8. Aktualizacja narzędzia 'import_gpgkeys'. Obecnie wymagane jest również
+      export bazy zaufania kluczy 'trustdb' w pliku 'otrust.txt'. Przez co
+      nie ma już potrzeby ustawiania poziomu zaufania dla klucza. - BT #68
+
+  9. Zmiana nazwy kodowej wersji testowej w narzędziu 'immudex_branch' oraz
+      w funkcji 'get_debian_branch' w pliku 'library.sh' wykorzystywanym przez
+      kilka innych narzędzi. - BT #62
+
+  10. Dostosowanie narzędzia 'padlock'. Zmiana ikony pasująca do obecnej formy
+      aktywatora. - BT #73
+
+  11. Zmiana domyślnych programów dla znanych typów plików.
+
+  12. Dostosowanie aktywatora Firefoxa do Firejail - BT #72.

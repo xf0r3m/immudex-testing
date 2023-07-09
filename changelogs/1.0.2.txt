@@ -1,0 +1,4 @@
+immudex-testing 1.0.2 - tygodniowy build 02.07.2023
+
+	1. Aktualizacja pakietów.
+
