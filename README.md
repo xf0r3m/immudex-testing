@@ -35,14 +35,14 @@ miejsca na dysku**
 Obraz płyty znajduje się na dedykowanym serwisie WWW. Poniżej znajduje się 
 odnośniki.
 
-Tygodniowy build: 02.07.2023 
+Tygodniowy build: 09.07.2023 
   
-  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/1.0.2/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/1.0.2/immudex-testing64.iso)
+  * 64-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/1.0.3/immudex-testing64.iso](https://ftp.morketsmerke.org/immudex/testing/iso/1.0.3/immudex-testing64.iso)
 
-    CRC: 2028021669 SHA1: c7d24e53295d6af8b94e0b8f7dfc4659fff324b2
-  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/1.0.2/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/1.0.2/immudex-testing32.iso)
+    CRC: 3923428193 SHA1: b2cbd2a7999b7282b375f6cc274a6186a03e7b25
+  * 32-bit: [https://ftp.morketsmerke.org/immudex/testing/iso/1.0.3/immudex-testing32.iso](https://ftp.morketsmerke.org/immudex/testing/iso/1.0.3/immudex-testing32.iso)
 
-    CRC: 990621989 SHA1: 4df0fee109cd496edf02e228204a6692a0630d4c
+    CRC: 3004206812 SHA1: f15f203f6ba14d133476572f2b97a0d996533837
 
 Domyślnym użytkownikiem jest user, dostęp to niego uzyskujemy za pomocą hasła
 user1. Możemy również skorzystać z konta superużytkownika root z hasłem toor.

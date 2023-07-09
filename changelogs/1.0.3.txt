@@ -1,0 +1,10 @@
+immudex-testing 1.0.3 - tygodniowy build 09.07.2023
+
+	1. Aktualizacja pakietów.
+
+  2. Aktualizacja narzędzia 'newsfeed'. Teraz pod tytułami wyświetlone zostanie
+    zawartość pola "<description>" z pliku RSS.
+
+  3. Dodanie opcji '--nuke' do narzędzia 'create_media'. Opcja pozwala na
+    wyzerowanie pierwszego megabajta dysku. - BT #83
+
