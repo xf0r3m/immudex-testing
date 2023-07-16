@@ -10,6 +10,7 @@ source ~/immudex-testing/versions/template.sh;
 update_packages;
 
 cp -vv ~/immudex-testing/files/${VERSION}/xfce4-keyboard-shortcuts.xml /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml;
+cp -vv ~/immudex-testing/files/${VERSION}/whiskermenu-1.rc /etc/skel/.config/xfce4/panel; 
 
 recreate_users;
 
