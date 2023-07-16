@@ -1,0 +1,11 @@
+immudex-testing 1.0.4 - tygodniowy build 16.07.2023
+
+	1. Aktualizacja pakietów.
+
+  2. Definicja dwóch skrótów klawiszowych:
+    - Ctrl + Alt + t = xfce4-terminal
+    - Win = Uruchamia whisker menu (Menu na pasku pod klawiszem start). 
+
+  3. Dodanie do Menu Start (Whisker menu) przycisku "Wstrzymaj" służącemu
+    przełączeniu komputer w stan uśpienia.
+
