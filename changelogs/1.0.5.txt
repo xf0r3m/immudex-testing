@@ -1,0 +1,8 @@
+immudex-testing 1.0.5 - tygodniowy build 23.07.2023
+
+	1. Aktualizacja pakietów.
+
+  2. Aktualizacja narzędzia 'pl', oczyszczenie adresów URL z poprzedzającej ich
+    spacji. W niektórych wersjach 'mpv', mogło to sposowodować brak
+    odtwarzania.
+
