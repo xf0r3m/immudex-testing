@@ -32,7 +32,7 @@ Do dyspozycji mamy:
 **Uwaga! Od wersji 0.2.3, immudex-testing będzie wymagać min. 6GB wolnego
 miejsca na dysku**
 
-**Uwaga! Od poniedziałku godziny 18:00 do wtorku godziny 07:00 dostęp do 
+**Uwaga! Od poniedziałku (31.07) godziny 18:00 do wtorku (01.08) godziny 07:00 dostęp do 
 searx.morketsmerke.org (silnik wyszukiwania, strona startowa firefox-a) może 
 być ograniczony ze względu na prowadzone w tym czasie prace konserwatorskie.**
 
