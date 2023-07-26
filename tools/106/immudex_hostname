@@ -1,41 +1,12 @@
 #!/bin/bash
 
-vendor=$(hostnamectl | grep 'Vendor' | awk '{printf $3}')
-modelLine=$(hostnamectl | grep 'Model' | awk '{printf $3}')
-model=$(hostnamectl | grep 'Model' | awk '{printf $4}')
-
-case $vendor in
-  "Lenovo") vendorShort="l";;
-  "Dell") vendorShort="d";;
-  "Acer") vendorShort="a";;
-  "ASUSTeK") vendorShort="as";;
-  "GOOGLE") vendorShort="go";;
-  "QEMU") vendorShort="kvm";;
-  *) hName="immudex";;
-esac
-
-case $modelLine in
-  "ThinkPad") mLShort="TP";;
-  "Latitude") mLShort="Lat";;
-  "AOD260") mLShort="ao";
-            model="D260";;
-  "Candy") vendorShort="d";
-            mLShort="chrbook";
-            model="3120";;
-  "Inspiron") mLShort="Ins";;
-  "Standard") if [ $vendorShort = "kvm" ]; then
-                mLShort=$(hostnamectl | grep 'Machine ID' | awk '{print $3}' | cut -c 26-33);
-                model="";
-              else
-                mlShort="Std";
-              fi;;
-  *) hName="immudex";;
-esac
-
-if [ ! "$hName" ]; then
-  hName="${vendorShort}-${mLShort}-$model"
-  sudo hostnamectl set-hostname $hName;
-  sudo sed -i "s/immudex/${hName}/" /etc/hosts;
-  echo $hName | sudo tee /etc/hostname > /dev/null;
+bootID=$(sed 's/-//g' /proc/sys/kernel/random/boot_id | cut -c 26-33);
+if hostnamectl > /dev/null 2>&1; then
+	hName="$(hostnamectl | grep 'Chassis' | cut -d ":" -f 2 | awk '{printf $1}')-${bootID}";
+else
+	hName="$(sudo dmidecode -s chassis-type | head -1 | tr [A-Z] [a-z])-${bootID}";
 fi
 
+sudo hostnamectl set-hostname $hName;
+sudo sed -i "s/immudex/${hName}/g" /etc/hosts;
+echo $hName | sudo tee /etc/hostname > /dev/null;
