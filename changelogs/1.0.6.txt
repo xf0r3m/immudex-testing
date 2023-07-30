@@ -1,0 +1,18 @@
+immudex-testing 1.0.5 - tygodniowy build 30.07.2023
+
+	1. Aktualizacja pakietów.
+
+  2. Unifikacja narzędzia immudex_hostname, obecnie na wszystkich wersjach
+    immudex nazwa hosta będzie mieć taki sam wzorzec:
+    (Wartość pola 'Chassis' z polecenia hostnamectl [bez unicode])-(siedem ostatnich znaków z boot ID)
+    BT #92
+
+  3. Dodanie zaginionej aktualizacji narzędzia 'create_media', zawierającej
+    opcję '--nuke', pozwalającej na wyczyszczenie pierwszego megabajtu dysku
+    BT #83
+
+  4. Aktualizacja domyślnego profilu przeglądarki Firefox, po to aby nie
+    wyświetlała się ta początkowa konfigracja za każdym uruchomieniem po
+    restartcie systemu.
+  
+
