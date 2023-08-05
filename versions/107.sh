@@ -9,7 +9,7 @@ source ~/immudex-testing/versions/template.sh;
 
 update_packages;
 
-cp -vv ~/immudex-testing/tools/${VERSION}/gtk-main.css /usr/share/xfce4-notes-plugin/gtk-3.0/
+cp -vv ~/immudex-testing/files/${VERSION}/gtk-main.css /usr/share/xfce4-notes-plugin/gtk-3.0/
 
 set_mime;
 
