@@ -1,0 +1,16 @@
+immudex-testing 1.0.5 - tygodniowy build 30.07.2023
+
+	1. Aktualizacja pakietów.
+
+  2. Usunięcie pakietu 'xpra'.
+
+  3. Zmiana domyślnego wyglądu apletu 'xfce4-notes-plugin' - przywrócono
+    domyślny wygląd dla immudex - BT #101.
+
+  4. Dodanie skrótów klawiszowych pozwalających wyrównać okno do wybranej
+    krawędzi ekranu (zgodnie z klawiszami kierunkowymi w 'Vim') oraz 
+    przenieść okno na wybrany monitor
+    (Ctrl+Shift+! - lewy, Ctrl+Shift+@ - prawy)
+
+  
+
