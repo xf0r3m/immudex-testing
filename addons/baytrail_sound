@@ -1,0 +1,53 @@
+#!/bin/bash
+
+if [ "$1" ]; then
+  case $1 in
+    "install") echo "Installation $(basename $0) addon...";
+                if [ ! -d /usr/share/immudex_addons ]; then
+                  mkdir /usr/share/immudex_addons;
+                fi
+                cat >> $(basename $0)_installer << EOF
+if [ ! -d /boot ]; then
+  mkdir /boot;
+	apt purge linux-image* --purge -y;
+	apt install linux-image-amd64;
+fi
+
+cp -vv /etc/apt/sources.list /etc/apt/sources.list.d/baytrail-sound.list;
+sed -e 's/main/contrib non-free non-free-firmware/g' -i /etc/apt/sources.list.d/baytrail-sound.list;
+
+apt update;
+apt install firmware-sof-signed firmware-intel-sound;
+
+rm /etc/apt/sources.list.d/baytrail-sound.list;
+apt update;
+
+apt-get autoclean;
+apt-get autoremove;
+apt-get clean;
+apt-get clean;
+EOF
+                bash $(basename $0)_installer;
+                if [ $? -eq 0 ]; then
+                  rm $(basename $0)_installer;
+                  echo $(basename $0) | tee -a /usr/share/immudex_addons/installed_addons;
+                  echo "Installation $(basename $0) addon...[ OK ]";
+                fi;;
+    "remove") echo "Removing $(basename $0) addon...";
+                cat >> $(basename $0)_uninstaller << EOF
+apt remove -y firmware-sof-signed firmware-intel-sound;
+apt-get autoclean;
+apt-get autoremove -y;
+apt-get clean;
+EOF
+                bash $(basename $0)_uninstaller;
+                if [ $? -eq 0 ]; then
+                  rm $(basename $0)_uninstaller;
+                  sed -i "s/$(basename $0)//g" /usr/share/immudex_addons/installed_addons;
+                  echo "Removing $(basename $0) addon...[ OK ]";
+                fi;;
+  esac
+else
+  echo "Internal error: action must be given.";
+  exit 1;
+fi
