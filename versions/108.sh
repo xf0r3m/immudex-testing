@@ -10,6 +10,7 @@ source ~/immudex-testing/versions/template.sh;
 update_packages;
 
 cp -vv ~/immudex-testing/tools/${VERSION}/idle-clic /usr/local/bin;
+cp -vv ~/immudex-testing/tools/${VERSION}/pl /usr/local/bin;
 
 set_mime;
 
