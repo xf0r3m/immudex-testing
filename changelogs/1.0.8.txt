@@ -1,0 +1,14 @@
+immudex-testing 1.0.8 - tygodniowy build 18.08.2023
+
+	1. Aktualizacja pakietów.
+
+  2. Dodanie klienta projektu IDLE.
+
+  3. Aktualizacja narzędzia 'pl'. Dodanie możliwości podania odnośnika URL
+    (HTTP/HTTPS) do listy z linkami.
+
+  4. Wyłącznie przesuwania okna poprzez kliknięcie na nie z przytrzymanym
+      lewym klawiszem 'Alt'. 
+
+  
+
