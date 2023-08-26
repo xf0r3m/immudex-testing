@@ -22,6 +22,8 @@ cp -vv ~/immudex-testing/launchers/${VERSION}/16844254192.desktop /etc/skel/.con
 cp -vv ~/immudex-testing/files/${VERSION}/librewolf.desktop /usr/share/applications;
 cp -vv ~/immudex-testing/tools/${VERSION}/secured-firefox /usr/local/bin;
 
+cp -vv ~/immudex-testing/images/${VERSION}/lightdm_wallpaper.jpg /usr/share/images/desktop-base;
+
 tar -xf ~/immudex-testing/files/${VERSION}/librewolf.tgz -C /etc/skel;
 recreate_users;
 
