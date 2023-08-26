@@ -19,7 +19,9 @@ fi
 ln -s /usr/lib/librewolf/librewolf /usr/bin/librewolf;
 
 cp -vv ~/immudex-testing/launchers/${VERSION}/16844254192.desktop /etc/skel/.config/xfce4/panel/launcher-5;
+cp -vv ~/immudex-testing/files/${VERSION}/terminalrc /etc/skel/.config/xfce4/terminal;
 cp -vv ~/immudex-testing/files/${VERSION}/librewolf.desktop /usr/share/applications;
+cp -vv ~/immudex-testing/files/${VERSION}/gtk-main.css /usr/share/xfce4-notes-plugin/gtk-3.0;
 cp -vv ~/immudex-testing/tools/${VERSION}/secured-firefox /usr/local/bin;
 
 cp -vv ~/immudex-testing/images/${VERSION}/lightdm_wallpaper.jpg /usr/share/images/desktop-base;
