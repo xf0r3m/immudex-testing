@@ -9,7 +9,7 @@ source ~/immudex-testing/versions/template.sh;
 
 update_packages;
 
-if [ $(uname -m) = "x86_64" ]; then
+if [ $(dpkg --print-architecture) = "amd64" ]; then
   wget https://ftp.morketsmerke.org/immudex/testing/software/librewolf/librewolf-116.0.3-1.en-US.linux-x86_64.tar.bz2;
   tar -xf librewolf-116.0.3-1.en-US.linux-x86_64.tar.bz2 -C /usr/lib;
   rm librewolf-116.0.3-1.en-US.linux-x86_64.tar.bz2;
