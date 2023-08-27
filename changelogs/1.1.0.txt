@@ -1,0 +1,11 @@
+immudex-testing 1.1.0 - finalny obraz płyty
+
+  1. Aktualizacja pakietów.
+
+  2. Testowe wdrożenie nowej przeglądarki - LibreWolf, jako przeglądarki
+     uruchamianej przez firejail. Można ją również uruchomić normalnie przez
+     aktywator w menu. Firefox-esr dalej jest dostępny w systemie.
+
+  3. Pozbycie się rzeczy do, których nie mam praw, tj. tło LightDM zastąpiono
+      je innym (do tego posiadam prawa), tło terminala oraz
+      tło notatek XFCE (te zastąpiono jednolitym kolorem oraz gardientem).
