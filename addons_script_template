@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [ "$1" ]; then
+  case $1 in
+    "install") echo "Installation $(basename $0) addon...";
+                if [ ! -d /usr/share/immudex_addons ]; then
+                  sudo mkdir /usr/share/immudex_addons;
+                fi
+                cat >> $(basename $0)_installer << EOF
+# Here put code for installation addon.
+EOF
+                bash $(basename $0)_installer;
+                if [ $? -eq 0 ]; then
+                  rm $(basename $0)_installer;
+                  echo $(basename $0) | sudo tee -a /usr/share/immudex_addons/installed_addons;
+                  echo "Installation $(basename $0) addon...[ OK ]";
+                fi;;
+    "remove") echo "Removing $(basename $0) addon...";
+                cat >> $(basename $0)_uninstaller << EOF
+# Here put code for remove addon.
+EOF
+                bash $(basename $0)_uninstaller;
+                if [ $? -eq 0 ]; then
+                  rm $(basename $0)_uninstaller;
+                  sudo sed -i "s/$(basename $0)//g" /usr/share/immudex_addons/installed_addons;
+                  echo "Removing $(basename $0) addon...[ OK ]";
+                fi;;
+  esac
+else
+  echo "Internal error: action must be given.";
+  exit 1;
+fi

@@ -1,0 +1,62 @@
+#!/bin/bash
+
+if [ "$1" ]; then
+  case $1 in
+    "install") echo "Installation $(basename $0) addon...";
+                if [ ! -d /usr/share/immudex-addons ]; then
+                  mkdir /usr/share/immudex-addons;
+                fi
+                cat >> $(basename $0)_installer << EOF
+baseVersion=\$(head -1 /etc/apt/sources.list | awk '{print \$3}')
+
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.25-1_all.deb;
+dpkg -i mysql-apt-config_0.8.25-1_all.deb;
+
+sed -i "s/\$baseVersion/bullseye/g" /etc/apt/sources.list;
+
+apt update;
+apt install mysql-server -y
+apt-get install --fix-missing
+
+apt-mark hold libmecab2 libssl1.1 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client mysql-common mysql-community-client mysql-community-client-core mysql-community-client-plugins mysql-community-server mysql-community-server-core
+
+sed -i "s/bullseye/\$baseVersion/g" /etc/apt/sources.list; 
+apt update
+apt install apache2 libapache2-mod-php php php-mysql -y;
+
+apt autoremove;
+apt autoclean;
+apt clean;
+apt clean;
+
+rm mysql-apt-config_0.8.25-1_all.deb;
+EOF
+                bash $(basename $0)_installer;
+                if [ $? -eq 0 ]; then
+                  rm $(basename $0)_installer;
+                  echo $(basename $0) | tee -a /usr/share/immudex-addons/installed-addons;
+                  echo "Installation $(basename $0) addon...[ OK ]";
+                fi;;
+    "remove") echo "Removing $(basename $0) addon...";
+                cat >> $(basename $0)_uninstaller << EOF
+apt-mark unhold libmecab2 libssl1.1 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client mysql-common mysql-community-client mysql-community-client-core mysql-community-client-plugins mysql-community-server mysql-community-server-core
+
+apt-get remove -y libssl1.1  mysql-client mysql-common mysql-community-client mysql-community-client-core mysql-community-client-plugins mysql-community-server mysql-community-server-core apache2 libapache2-mod-php php php-mysql mysql-apt-config
+
+apt-get upgrade -y libmecab2 mecab-utils mecab-ipadic mecab-ipadic-utf8;
+
+apt-get autoclean
+apt-get autoremove -y
+apt-get clean
+EOF
+                bash $(basename $0)_uninstaller;
+                if [ $? -eq 0 ]; then
+                  rm $(basename $0)_uninstaller;
+                  sed -i "s/$(basename $0)//g" /usr/share/immudex-addons/installed-addons;
+                  echo "Removing $(basename $0) addon...[ OK ]";
+                fi;;
+  esac
+else
+  echo "Internal error: action must be given.";
+  exit 1;
+fi

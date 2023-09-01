@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [ ! "$immudexAddonsPath" ]; then 
+  immudexAddonsPath=$(sudo find / -ipath '*immudex-testing/addons' -print | head -1);
+  if [ ! "$immudexAddonsPath" ]; then
+    if [ ! -x /usr/bin/git ]; then apt-get install git; fi
+    cd; 
+    git clone https://github.com/xf0r3m/immudex-testing.git;
+    immudexAddonsPath="${HOME}/immudex-testing/addons";
+  fi
+fi
+
+installedAddonsFile="/usr/share/immudex-addons/installed-addons"; 
+
+listAddons=$(ls $immudexAddonsPath);
+if [ -f $installedAddonsFile ]; then
+  for installed in $(cat $installedAddonsFile | awk '{printf $1" "}'); do
+    listAddons2=$(echo $listAddons | sed "s/$installed/${installed}\[installed\]/g")
+    listAddons=$listAddons2;
+  done 
+fi 
+
+export PS3="immudex_addons> ";
+select addon in $listAddons; do
+  if [ ! "$addon" ]; then break;
+  else
+    if echo $addon | grep -q 'installed'; then
+      addon=$(echo $addon | sed 's/\[installed\]//');
+      bash ${immudexAddonsPath}/${addon} remove;
+    else
+      bash ${immudexAddonsPath}/${addon} install;
+    fi 
+  fi
+done

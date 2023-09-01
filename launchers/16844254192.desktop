@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=LibreWolf (Firejailed)
+Name[pl]=LibreWolf (Firejailed)
+Comment=Secure the World Wide Web browsing
+Comment[pl]=Bezpieczne przeglądanie stron WWW
+GenericName=Web Browser
+GenericName[pl]=Przeglądarka WWW
+X-GNOME-FullName=LibreWolf Web Browser
+X-GNOME-FullName[pl]=Przeglądarka WWW LibreWolf
+Exec=/usr/local/bin/immudex-secured-firefox
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/lib/librewolf/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupWMClass=Firefox-esr
+StartupNotify=true
+X-XFCE-Source=file:///usr/share/applications/librewolf.desktop
+Path=
