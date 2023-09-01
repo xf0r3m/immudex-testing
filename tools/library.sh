@@ -24,7 +24,7 @@ function check_distro_commit() {
     if [ -d /tmp/immudex-testing ]; then
       $(cd /tmp/immudex-testing && git pull -q);
     else
-      git clone -q https://git.morketsmerke.org/git/immudex-testing /tmp/immudex-testing;
+      git clone -q https://github.com/xf0r3m/immudex-testing /tmp/immudex-testing;
     fi
     latestVersion=$(cd /tmp/immudex-testing && git log --pretty=oneline | head -1 | cut -d " " -f 1);
     if [ "$1" ] && [ "$1" == "--print" ]; then
