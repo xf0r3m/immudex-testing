@@ -11,10 +11,12 @@ tej dystrybucji znajdują się pod adresem:
 [https://morketsmerke.github.io/articles/immudex/immudex.html](https://morketsmerke.github.io/articles/immudex/immudex.html)
 
 ### Tworzenie obrazu płyty dystrybucji:
-
+  
+  ```
   $ git clone https://github.com/xf0r3m/immudex-testing
   $ cd immudex-testing
   $ ./immudex-build --<amd64/i386>
+  ```
 
 ### Dodawanie zmian do obrazu płyty:
 
