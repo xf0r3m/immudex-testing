@@ -12,7 +12,7 @@ function help() {
   echo "immudex-build - script for building immudex LiveCD.";
   echo "@ 2023 morketsmerke.org";
   echo "Usage:";
-  echo " ./immudex_build  --<amd64/i386>";
+  echo " ./immudex-build  --<amd64/i386>";
 }
 
 function create_enviroment() {
