@@ -9,9 +9,9 @@ if [ "$1" ]; then
                 cat >> $(basename $0)_installer << EOF
 apt update;
 apt install -y libdbus-1-dev libncursesw5-dev libpulse-dev libssl-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
-wget https://ftp.morketsmerke.org/immudex/testing/addons/ncspot-bin-0.13.1.tar.gz -O /tmp/ncspot-bin-0.13.1.tar.gz;
-tar -xzvf /tmp/ncspot-bin-0.13.1.tar.gz -C /usr/local/bin;
-rm /tmp/ncspot-bin-0.13.1.tar.gz;
+wget https://ftp.morketsmerke.org/immudex/testing/addons/ncspot-bin-0.13.4.tar.gz -O /tmp/ncspot-bin-0.13.4.tar.gz;
+tar -xzvf /tmp/ncspot-bin-0.13.4.tar.gz -C /usr/local/bin;
+rm /tmp/ncspot-bin-0.13.4.tar.gz;
 EOF
                 bash $(basename $0)_installer;
                 if [ $? -eq 0 ]; then
