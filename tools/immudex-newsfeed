@@ -136,11 +136,11 @@ else
         fi
         notify-send "$nameOfSubscription" "New $amountOfNews newses" --icon=/usr/share/icons/rss.png;
       fi
+      fname="/tmp/newsfeed_${i}.xml";
+      export markList=$(grep -o '</[a-z]*\:*[a-z]*[A-Z]*[a-z]*[A-Z]*[a-z]*>' $fname | sort | uniq | awk '{printf $1" "}');
+      createBufferFile $fname;
     fi
-    fname="/tmp/newsfeed_${i}.xml";
-    export markList=$(grep -o '</[a-z]*\:*[a-z]*[A-Z]*[a-z]*[A-Z]*[a-z]*>' $fname | sort | uniq | awk '{printf $1" "}');
-    createBufferFile $fname;
-    i=$((i + 1));
+      i=$((i + 1));
   done
   if [ "$1" ] && [ "$1" = "--show" ] && [ "$2" ] && [ $2 -gt 0 ]; then
     
