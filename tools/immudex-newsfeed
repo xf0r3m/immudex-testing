@@ -37,8 +37,13 @@ function show() {
   if grep -q '<lastBuildDate>' $bufferFile; then
     sed -i -e 's,<lastBuildDate>,<pubDate>,g' -e 's,</lastBuildDate>,</pubDate>,g' $bufferFile;
   fi
-  newsCount=$(grep -o '<title>.*</title>' $bufferFile | wc -l | awk '{printf $1}');
-  count=1
+  if [ ! "$2" ]; then
+    newsCount=$(grep -o '<title>.*</title>' $bufferFile | wc -l | awk '{printf $1}');
+    count=1
+  else
+    count=$(expr $2 + 1);
+    newsCount=$count;
+  fi
   while [ $count -le $newsCount ]; do
     t=$(grep -o '<title>.*</title>' $bufferFile | sed -n "${count}p");
     title=$(titleSanitize $t);
@@ -60,6 +65,12 @@ function getLink() {
   linkLine=$(grep -o '<link>.*</link>' $bufferFile | sed -n "${newsNumber}p");
   link=$(linkSanitize $linkLine);
   echo -n $link;
+}
+
+function executeCreateBufferFile() {
+  fname=$1;
+  export markList=$(grep -o '</[a-z]*\:*[a-z]*[A-Z]*[a-z]*[A-Z]*[a-z]*>' $fname | sort | uniq | awk '{printf $1" "}');
+  createBufferFile $fname;
 }
 
 function help() {
@@ -110,23 +121,27 @@ else
       wget $rssLink -O /tmp/new_newsfeed_${i}.xml 2>/dev/null;
       if [ $? -eq 0 ]; then echo "[ OK ]";
       else echo -e "\nThere is no Internet connection"; exit 1; fi
-        if [ -s /tmp/newsfeed_${i}.xml ]; then
-        amountOfNewNewses=$(diff /tmp/new_newsfeed_${i}.xml /tmp/newsfeed_${i}.xml | grep '<title>' | wc -l);
+      if [ -s /tmp/newsfeed_${i}.xml ]; then
+        executeCreateBufferFile /tmp/new_newsfeed_${i}.xml;
+        amountOfNewNewses=$(diff /tmp/new_newsfeed_${i}.xml.buffer /tmp/newsfeed_${i}.xml.buffer | grep '<title>' | wc -l);
         if [ $amountOfNewNewses -gt 0 ]; then 
           notify-send "$nameOfSubscription" "New $amountOfNewNewses newses" --icon=/usr/share/icons/rss.png;
-          j=1;
-          sleep 1;
-          while [ $j -le 1 ]; do
-            news=$(diff /tmp/new_newsfeed_${i}.xml /tmp/newsfeed_${i}.xml | \
-                     grep '<title>' | sed -n "${j}p" | sed 's/<title>//' | \
-                      sed 's/<\/title>//' | sed 's/[<>]//' | \
-                      sed 's/^[[:space:]]*//g');
-            notify-send "newsfeed" "${nameOfSubscription}: ${news}" -t 10000 --icon=/usr/share/icons/rss.png;
-            sleep 1;
-            j=$((j + 1));
-          done
+          mv /tmp/new_newsfeed_${i}.xml /tmp/newsfeed_${i}.xml;
+          executeCreateBufferFile /tmp/newsfeed_${i}.xml;
+          news=$(show /tmp/newsfeed_${i}.xml 1);
+          notify-send "newsfeed" "${nameOfSubscription}:\n${news}" -t ${i}0000 --icon=/usr/share/icons/rss.png;
+          #j=1;
+          #sleep 1;
+          #while [ $j -le 1 ]; do
+          #  news=$(diff /tmp/new_newsfeed_${i}.xml /tmp/newsfeed_${i}.xml | \
+          #           grep '<title>' | sed -n "${j}p" | sed 's/<title>//' | \
+          #            sed 's/<\/title>//' | sed 's/[<>]//' | \
+          #            sed 's/^[[:space:]]*//g');
+          #  notify-send "newsfeed" "${nameOfSubscription}: ${news}" -t 10000 --icon=/usr/share/icons/rss.png;
+          #  sleep 1;
+          #  j=$((j + 1));
+          #done
         fi
-        mv /tmp/new_newsfeed_${i}.xml /tmp/newsfeed_${i}.xml;
       else
         mv /tmp/new_newsfeed_${i}.xml /tmp/newsfeed_${i}.xml;
         amountOfNews=$(grep '<title>' /tmp/newsfeed_${i}.xml | sed -n '2,$p' | wc -l);
@@ -135,10 +150,12 @@ else
           amountOfNews=$(sed 's/<\/title>/\n/g' /tmp/newsfeed_${i}.xml | sed 's/<item>/\n/g' | grep '<title>' | wc -l)
         fi
         notify-send "$nameOfSubscription" "New $amountOfNews newses" --icon=/usr/share/icons/rss.png;
+        executeCreateBufferFile /tmp/newsfeed_${i}.xml;
+        if [ "$2" ] && [ "--show-one" ]; then
+          news=$(show /tmp/newsfeed_${i}.xml 1);
+          notify-send "newsfeed" "${nameOfSubscription}:\n${news}" -t ${i}0000 --icon=/usr/share/icons/rss.png;
+        fi
       fi
-      fname="/tmp/newsfeed_${i}.xml";
-      export markList=$(grep -o '</[a-z]*\:*[a-z]*[A-Z]*[a-z]*[A-Z]*[a-z]*>' $fname | sort | uniq | awk '{printf $1" "}');
-      createBufferFile $fname;
     fi
       i=$((i + 1));
   done
