@@ -57,6 +57,13 @@ if [ "$1" ]; then
     else
       echo -e "Copying immudex files to the disk...[ ${RED}FAIL${ENDCOLOR} ]";
     fi
+  elif [ "$1" ] && [ "$1" = "--myversion" ]; then
+    if [ -d /tmp/immudex-testing ]; then 
+      (cd /tmp/immudex-testing && git pull > /dev/null 2>&1)
+    else
+      git clone https://github.com/xf0r3m/immudex-testing /tmp;
+    fi
+    (cd /tmp/immudex-testing && git show $(cat /run/live/medium/live/version))
   else
     help;
     exit 1;

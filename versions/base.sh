@@ -129,6 +129,7 @@ EOL
 
 echo "alias immudex-chhome='export HOME=\$(pwd)'" >> /etc/bash.bashrc;
 echo "alias immudex-changelogs='immudex-upgrade --check --print'" >> /etc/bash.bashrc;
+echo "alias immudex-version='immudex-upgrade --myversion'" >> /etc/bash.bashrc;
 
 chmod u+s /usr/bin/ping;
 
