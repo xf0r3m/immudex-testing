@@ -63,7 +63,7 @@ function open() {
 
   if [ $# -lt 1 ]; then help; exit 1;
   else
-    index=$(ls --hide=control /dev/mapper | grep "immudex_crypt" | grep -o "[0-9]*$"| tail -1);
+    index=$(ls --hide=control /dev/mapper | grep "immudex-crypt" | grep -o "[0-9]*$"| tail -1);
     if [ "$index" ]; then
       index=$((index + 1));
     else
