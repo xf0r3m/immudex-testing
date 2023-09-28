@@ -39,3 +39,19 @@ function check_distro_commit() {
     return 255;
   fi
 }
+
+function ascii_colors() {
+
+  BLUE="\e[1;94m";
+  RED="\e[1;91m";
+  CYAN="\e[1;96m";
+  ENDCOLOR="\e[0m";
+
+  echo -e "${BLUE} _                           ${RED}    _      ${CYAN}      ${ENDCOLOR}";
+  echo -e "${BLUE}(_)_ __ ___  _ __ ___  _   _ ${RED} __| | ___${CYAN}__  __${ENDCOLOR}";
+  echo -e "${BLUE}| | '_ \` _ \| '_ \` _ \| | | |${RED}/ _\` |/ _ \\\\${CYAN} \/ /${ENDCOLOR}";
+  echo -e "${BLUE}| | | | | | | | | | | | |_| |${RED} (_| |  __/${CYAN}>  < ${ENDCOLOR}";
+  echo -e "${BLUE}|_|_| |_| |_|_| |_| |_|\__,_|${RED}\__,_|\___/${CYAN}_/\_\\";
+  echo -e "${ENDCOLOR}";
+
+}
