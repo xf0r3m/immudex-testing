@@ -74,13 +74,14 @@ function executeCreateBufferFile() {
 }
 
 function help() {
-  echo "newsfeed - fetch and browse news feed from rss and atom channels";
-  echo "morketsmerke.net; COPYLEFT @ 2022";
+  echo "immudex-newsfeed - fetch and browse news feed from rss and atom channels";
+  echo "@ 2023 morketsmerke.org";
   echo;
   echo "Options:";
   echo "  --list - shows numbered list of names, saved in ~/.newsfeed names and";
   echo "    URL of rss channels";
-  echo "  --check - fetching new rss channel file from source";
+  echo "  --check [--show-one] - fetching new rss channel file from source";
+  echo "    [ and show first news from channel (as a notification) ]";
   echo "  --show <number_of_channel> - shows numbered list of news titles.";
   echo "    Number of channel you can get from --list option.";
   echo "  --open <number_of_title> - open web browser on link, which are under";
