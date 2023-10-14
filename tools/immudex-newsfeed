@@ -152,7 +152,7 @@ else
         fi
         notify-send "$nameOfSubscription" "New $amountOfNews newses" --icon=/usr/share/icons/rss.png;
         executeCreateBufferFile /tmp/newsfeed_${i}.xml;
-        if [ "$2" ] && [ "--show-one" ]; then
+        if [ "$2" ] && [ "$2" = "--show-one" ]; then
           news=$(show /tmp/newsfeed_${i}.xml 1);
           notify-send "newsfeed" "${nameOfSubscription}:\n${news}" -t ${i}0000 --icon=/usr/share/icons/rss.png;
         fi
