@@ -35,13 +35,13 @@ install_packages task-desktop task-xfce-desktop;
 install_packages firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet mpv yt-dlp vim-gtk3 redshift irssi nmap nfs-common remmina python3-pip ffmpeg debootstrap squashfs-tools xorriso syslinux-efi grub-pc-bin grub-efi-amd64-bin mtools dosfstools chrony python3-venv isolinux rsync mutt gimp openvpn netselect-apt gvfs-backends dnsutils xfce4-notes-plugin;
 
 if [ $ARCH = "amd64" ]; then
-  wget https://ftp.morketsmerke.org/immudex/testing/software/librewolf/librewolf-118.0.1-1.en-US.linux-x86_64.tar.bz2;
-  tar -xf librewolf-118.0.1-1.en-US.linux-x86_64.tar.bz2 -C /usr/lib;
-  rm librewolf-118.0.1-1.en-US.linux-x86_64.tar.bz2;
+  wget https://ftp.morketsmerke.org/immudex/testing/software/librewolf/librewolf-118.0.2-1.en-US.linux-x86_64.tar.bz2;
+  tar -xf librewolf-118.0.2-1.en-US.linux-x86_64.tar.bz2 -C /usr/lib;
+  rm librewolf-118.0.2-1.en-US.linux-x86_64.tar.bz2;
 else
-  wget https://ftp.morketsmerke.org/immudex/testing/software/librewolf/librewolf-118.0.1-1.en-US.linux-i686.tar.bz2;
-  tar -xf librewolf-118.0.1-1.en-US.linux-i686.tar.bz2 -C /usr/lib;
-  rm librewolf-118.0.1-1.en-US.linux-i686.tar.bz2;
+  wget https://ftp.morketsmerke.org/immudex/testing/software/librewolf/librewolf-118.0.2-1.en-US.linux-i686.tar.bz2;
+  tar -xf librewolf-118.0.2-1.en-US.linux-i686.tar.bz2 -C /usr/lib;
+  rm librewolf-118.0.2-1.en-US.linux-i686.tar.bz2;
 fi
 ln -s /usr/lib/librewolf/librewolf /usr/bin/librewolf;
 
