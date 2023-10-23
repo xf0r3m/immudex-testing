@@ -21,9 +21,6 @@ function set_xfce4_notes_autostart() {
 
 
 function recreate_users() {
-  userdel -r user;
-  userdel -r xf0r3m;
-
   useradd -m -s /bin/bash user;
   cp -rvv /etc/skel/.??* /home/user;
   chown -R user:user /home/user;

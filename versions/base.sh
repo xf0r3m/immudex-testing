@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 ARCH=$(dpkg --print-architecture);
 LWVER='118.0.2-2';
 LWTEST=1;
