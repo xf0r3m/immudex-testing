@@ -1,6 +1,27 @@
 #!/bin/bash
 
 ARCH=$(dpkg --print-architecture);
+LWVER='118.0.2-2';
+LWTEST=1;
+
+if [ $ARCH = "amd64" ]; then
+  KARCH="amd64";
+else
+  KARCH="686-pae";
+fi
+
+if [ $LWTEST -eq 0 ]; then
+  LWPATH="https://ftp.morketsmerke.org/immudex/testing/software/librewolf/testing";
+else
+  LWPATH="https://ftp.morketsmerke.org/immudex/testing/software/librewolf";
+fi
+
+if [ $ARCH = "amd64" ]; then
+  LWARCH="x86_64";
+else
+  LWARCH="i686";
+fi
+
 cd;
 if [ -x /usr/bin/git ]; then git clone https://github.com/xf0r3m/immudex-testing;
 else apt install git -y && git clone https://github.com/xf0r3m/immudex-testing;
@@ -17,11 +38,7 @@ echo "deb-src http://deb.debian.org/debian/ testing-updates main" >> /etc/apt/so
 update_packages;
 
 
-if [ $ARCH = "amd64" ]; then
-install_packages --no-install-recommends linux-image-amd64 live-boot systemd-sysv -y;
-else
-install_packages --no-install-recommends linux-image-686-pae live-boot systemd-sysv -y;
-fi
+install_packages --no-install-recommends linux-image-${KARCH} live-boot systemd-sysv -y;
 
 install_packages tzdata locales keyboard-configuration console-setup;
 
@@ -34,15 +51,10 @@ install_packages task-desktop task-xfce-desktop;
 
 install_packages firejail ufw cryptsetup lsof extlinux grub-efi-amd64 efibootmgr bash-completion etherwake wakeonlan cifs-utils wget figlet mpv yt-dlp vim-gtk3 redshift irssi nmap nfs-common remmina python3-pip ffmpeg debootstrap squashfs-tools xorriso syslinux-efi grub-pc-bin grub-efi-amd64-bin mtools dosfstools chrony python3-venv isolinux rsync mutt gimp openvpn netselect-apt gvfs-backends dnsutils xfce4-notes-plugin;
 
-if [ $ARCH = "amd64" ]; then
-  wget https://ftp.morketsmerke.org/immudex/testing/software/librewolf/librewolf-118.0.2-2.en-US.linux-x86_64.tar.bz2;
-  tar -xf librewolf-118.0.2-2.en-US.linux-x86_64.tar.bz2 -C /usr/lib;
-  rm librewolf-118.0.2-2.en-US.linux-x86_64.tar.bz2;
-else
-  wget https://ftp.morketsmerke.org/immudex/testing/software/librewolf/librewolf-118.0.2-2.en-US.linux-i686.tar.bz2;
-  tar -xf librewolf-118.0.2-2.en-US.linux-i686.tar.bz2 -C /usr/lib;
-  rm librewolf-118.0.2-2.en-US.linux-i686.tar.bz2;
-fi
+wget ${LWPATH}/librewolf-${LWVER}.en-US.linux-${LWARCH}.tar.bz2;
+tar -xf librewolf-${LWVER}.en-US.linux-${LWARCH}.tar.bz2 -C /usr/lib;
+rm librewolf-${LWVER}.en-US.linux-${LWARCH}.tar.bz2;
+
 ln -s /usr/lib/librewolf/librewolf /usr/bin/librewolf;
 
 #head -1 /etc/apt/sources.list | tee /etc/apt/sources.list.d/xfce4-notes-plugin.list;
