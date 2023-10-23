@@ -59,6 +59,9 @@ rm librewolf-${LWVER}.en-US.linux-${LWARCH}.tar.bz2;
 
 ln -s /usr/lib/librewolf/librewolf /usr/bin/librewolf;
 
+update-alternatives --remove x-www-browser /usr/bin/firefox-esr;
+update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/lib/librewolf/librewolf 70;
+
 #head -1 /etc/apt/sources.list | tee /etc/apt/sources.list.d/xfce4-notes-plugin.list;
 #sed -i 's/testing/experimental/' /etc/apt/sources.list.d/xfce4-notes-plugin.list;
 #apt update;
