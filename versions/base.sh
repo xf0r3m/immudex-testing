@@ -3,7 +3,7 @@
 set -e
 
 ARCH=$(dpkg --print-architecture);
-LWVER='119.0-7';
+LWVER='119.0-8';
 LWTEST=1;
 
 if [ $ARCH = "amd64" ]; then
