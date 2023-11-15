@@ -7,11 +7,11 @@ if [ "$1" ]; then
                   mkdir /usr/share/immudex-addons;
                 fi
                 cat >> $(basename $0)_installer << EOF
-apt update;
-apt install -y libdbus-1-dev libncursesw5-dev libpulse-dev libssl-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
-wget https://ftp.morketsmerke.org/immudex/testing/addons/ncspot-bin-0.13.4.tar.gz -O /tmp/ncspot-bin-0.13.4.tar.gz;
-tar -xzvf /tmp/ncspot-bin-0.13.4.tar.gz -C /usr/local/bin;
-rm /tmp/ncspot-bin-0.13.4.tar.gz;
+VERSION="0.13.4";
+ARCH="\$(uname -m)";
+if [ ! -x /usr/bin/curl ]; then apt install -y curl; fi
+curl https://ftp.morketsmerke.org/immudex/testing/addons/ncspot-bin-\${VERSION}-\${ARCH}.tar.gz | tar -xzf - -C /usr/local/bin;
+chmod +x /usr/local/bin/ncspot;
 EOF
                 bash $(basename $0)_installer;
                 if [ $? -eq 0 ]; then
@@ -21,7 +21,6 @@ EOF
                 fi;;
     "remove") echo "Removing $(basename $0) addon...";
                 cat >> $(basename $0)_uninstaller << EOF
-apt remove -y libdbus-1-dev libncursesw5-dev libpulse-dev libssl-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev;
 rm /usr/local/bin/ncspot;
 EOF
                 bash $(basename $0)_uninstaller;
