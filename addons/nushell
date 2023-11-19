@@ -7,7 +7,7 @@ if [ "$1" ]; then
                   sudo mkdir /usr/share/immudex_addons;
                 fi
                 cat >> $(basename $0)_installer << EOF
-VERSION="0.87.0";
+VERSION="0.87.1";
 ARCH="\$(uname -m)";
 if [ ! -x /usr/bin/curl ]; then apt install -y curl; fi
 mkdir -p /usr/share/fonts/truetype/meslo;
@@ -20,7 +20,7 @@ rm /tmp/oh-my-posh-install.sh;
 chmod +x /usr/local/bin/oh-my-posh;
 mkdir /usr/share/oh-my-posh;
 mv /root/.cache/oh-my-posh/themes /usr/share/oh-my-posh;
-wget "https://gitweb.morketsmerke.org/?p=immudex-testing.git;a=blob_plain;f=files/immudex-nu.omp.json;hb=refs/heads/main" -O /usr/share/oh-my-posh/immudex-nu.omp.json;
+wget https://github.com/xf0r3m/immudex-testing/raw/main/files/immudex-nu.omp.json -O /usr/share/oh-my-posh/immudex-nu.omp.json;
 EOF
                 bash $(basename $0)_installer;
                 if [ $? -eq 0 ]; then
