@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#000000",
+          "foreground": "#487cff",
+          "style": "plain",
+          "template": "<b>\udb86\ude4a</b> {{ .UserName }}@{{ .HostName }}/",
+          "type": "session"
+        },
+        {
+          "background": "#000000",
+          "foreground": "#5ac8ea",
+          "properties": {
+            "style": "folder"
+          },
+          "style": "plain",
+          "template": "\ue5ff {{ .Path }}/",
+          "type": "path"
+        },
+        {
+          "background": "#000000",
+          "foreground": "#de076f",
+          "properties": {
+            "branch_icon": "",
+            "fetch_upstream_icon": true
+          },
+          "style": "plain",
+          "template": "{{ .UpstreamIcon }}{{ .HEAD }}/",
+          "type": "git"
+        },
+        {
+          "background": "#000000",
+          "foreground": "#491545",
+          "properties": {
+            "paused_icon": "\uf04c ",
+            "playing_icon": "\ue602 ",
+            "stopped_icon": "\uf04d ",
+            "track_separator": " - "
+          },
+          "style": "plain",
+          "template": "\uf1bc {{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }}/",
+          "type": "spotify"
+        },
+        {
+          "background": "#000000",
+          "foreground": "#05b92d",
+	  "foreground_templates": [
+            "{{ if gt .Code 0 }}#f1184c{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": "<f>\udb82\udfc6</f>",
+          "trailing_diamond": "\ue0b4",
+          "type": "status"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
