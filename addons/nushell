@@ -38,7 +38,7 @@ EOF
                 bash $(basename $0)_uninstaller;
                 if [ $? -eq 0 ]; then
                   rm $(basename $0)_uninstaller;
-                  sudo sed -i "s/$(basename $0)//g" /usr/share/immudex_addons/installed_addons;
+                  sudo sed -i "s/$(basename $0)//g" /usr/share/immudex-addons/installed-addons;
                   echo "Removing $(basename $0) addon...[ OK ]";
                 fi;;
   esac
